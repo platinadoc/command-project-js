@@ -1,2 +1,1 @@
-import { fetchfilm } from "./js/fetchfilm";
-fetchfilm()
+import { TheMovieDBApi } from './js/fetchfilm';
