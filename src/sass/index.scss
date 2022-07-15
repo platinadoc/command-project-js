@@ -1,6 +1,7 @@
-@import "./fonts";
+@import "./utils/fonts";
 @import "./utils/utils";
-@import "./common";
-@import "./header";
-@import "./main-gallery";
+@import "./utils/common";
+@import "./layot/header";
+@import "./layot/main-gallery";
+@import './layot/footer';
 
