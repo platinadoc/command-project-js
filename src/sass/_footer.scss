@@ -1,0 +1,139 @@
+.footer__top {
+    padding-top: 24px;
+    padding-bottom: 30px;
+    background-color: $bg-color-main;
+  
+  }
+  .footer__bottom {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    background-color: $bg-color-dark;
+  }
+  
+  .footer__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer__logo {
+    width: 80px;
+    margin-bottom: 22px;
+  }
+  
+  .footer__tel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $text-color-main;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    margin-bottom: 28px;
+  }
+  
+  .footer__tel::before {
+    content: ' ';
+    display: inline-block;
+    min-width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('../images/phone-mob.svg');
+  }
+  
+  .footer__soc-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .footer__soc-link {
+    display: block;
+    background-image: url('../images/instagram.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-width: 40px;
+    height: 40px;
+  }
+  
+  .footer__comment {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 2;
+    color: $text-color-secondary;
+    text-align: center;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .footer__top {
+      padding-top: 50px;
+      padding-bottom: 40px;
+      background-color: $bg-color-main;
+    }
+    .footer__bottom {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      background-color: $bg-color-dark;
+    }
+  
+    .footer__wrapper {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+    }
+    .footer__logo-link {
+      margin-right: 213px;
+    }
+  
+    .footer__logo {
+      width: 128px;
+      margin-bottom: 0;
+    }
+  
+    .footer__tel {
+      font-size: 20px;
+      border-right: 1px solid $text-color-secondary;
+      padding-right: 20px;
+      margin-right: 20px;
+      margin-bottom: 0;
+      // min-width: 221px;
+    }
+  
+    .footer__tel::before {
+      margin-right: 20px;
+      min-width: 24px;
+      height: 24px;
+    }
+  
+    .footer__comment {
+      text-align: start;
+    }
+  }
+  
+  @media screen and (min-width: 1366px) {
+    .footer__top {
+      padding-top: 52px;
+      padding-bottom: 56px;
+    }
+    
+    .footer__logo-link {
+      margin-right: 290px;
+    }
+  
+    .footer__tel {
+      font-size: 30px;
+      margin-right: 26px;
+      padding-right: 30px;
+    }
+  
+    .footer__tel::before {
+      margin-right: 30px;
+      min-width: 30px;
+      height: 30px;
+    }
+  }
