@@ -3,18 +3,18 @@
     <div class='hero__box average__position'>
       <img
         class='hero__image'
-        src={{poster}}
+        src={{poster_path}}
         alt='{{title}}'
         data-src='{{id}}'
       />
 
     </div>
     <div class='about__film'>
-      <h2 class='hero__title'>{{title}}</h2>
+      <h2 class='hero__title'> {{title}}</h2>
       <div class='hero__description'>
         <ul class='hero__description--list'>
           <li class='hero__description--Item'>
-            {{#each genres_type}}
+            {{#each genres_ids}}
               <span class='hero__genres'>{{this}}</span>
               <span class='symbol'>,</span>
               <span
