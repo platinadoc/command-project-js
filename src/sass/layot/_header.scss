@@ -14,14 +14,13 @@ a {
 }
 
 input {
-  //   margin-bottom: 4px;
   padding-bottom: 4px;
   color: #fff;
   background-color: transparent;
   border: none;
   border-bottom: 0.5px solid white;
   width: 100%;
-  max-width: 336px;
+  // max-width: 336px;
 
   font-weight: 400;
   font-size: 14px;
@@ -81,19 +80,6 @@ input {
   }
 }
 
-.block {
-  background-image: url(../images/background-imgDESK.png/../RectangleDESK.png);
-}
-
-// var btn = document.getElementById('btn');
-// btn.addEventListener('click', function(){changeBgImg();});
-
-// var block = document.getElementById('block');
-
-// function changeBgImg(){
-//     block.style.backgroundImage = 'img/img2.jpg'
-// }
-
 .container {
   width: 280px;
   height: 98px;
@@ -107,6 +93,18 @@ input {
 .logo {
   width: 24px;
   height: 24px;
+}
+
+.logo__btn {
+  margin: 0 8px 0 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  @media screen and(min-width: 1280px) {
+    margin-right: 10px;
+  }
 }
 
 .navigation__list {
@@ -131,24 +129,54 @@ input {
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
+  cursor: pointer;
 
   @media screen and(min-width: 768px) {
     margin-top: 9px;
   }
 }
 
-.navigation__link::after {
+.library::after {
   content: '';
 
   position: absolute;
   bottom: -3px;
   display: block;
-  width: 100%;
+  width: 36px;
   height: 3px;
 
   background-color: #ff001b;
 
-  opacity: 0;
+  // opacity: 0;
+}
+
+.home::after {
+  content: '';
+
+  position: absolute;
+  bottom: -3px;
+  display: block;
+  width: 69px;
+  height: 3px;
+
+  background-color: #ff001b;
+
+  // opacity: 0;
+}
+
+.search__form {
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  width: 280px;
+
+  @media screen and(min-width: 768px) {
+    width: 336px;
+  }
+
+  @media screen and(min-width: 1280px) {
+    width: 394px;
+  }
 }
 
 .search {
@@ -157,13 +185,24 @@ input {
 
 .search__icon {
   position: absolute;
-  top: 7px;
-  right: 0;
+  padding: 4;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  bottom: -2px;
+  right: -2;
 }
 
 .header__film {
+  padding: 0;
   margin: 0;
   display: none;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
 
   font-weight: 500;
   font-size: 30px;
@@ -182,6 +221,7 @@ input {
   border-radius: 5px;
   background-color: transparent;
   color: #fff;
+  cursor: pointer;
 
   font-weight: 500;
   font-size: 12px;
@@ -200,4 +240,8 @@ input {
 
 .js-is-hidden {
   display: none;
+}
+
+::placeholder {
+  color: #fff;
 }

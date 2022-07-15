@@ -1,19 +1,34 @@
-const homeBtnEl = document.querySelector('.js-home');
-const libraryBtnEl = document.querySelector('.js-library');
-const headerFilmEl = document.querySelector('.button__menu');
-const inputEl = document.querySelector('.search');
 const headerEl = document.querySelector('.header');
+const homeBtnEl = headerEl.querySelector('.js-home');
+const libraryBtnEl = headerEl.querySelector('.js-library');
+const headerFilmEl = headerEl.querySelector('.button__menu');
+const inputEl = headerEl.querySelector('.search__form');
+const logoEl = headerEl.querySelector('.navigation__logo');
+const btnHome = headerEl.querySelector('.navigation__link.js-library');
+const btnLibrary = headerEl.querySelector('.navigation__link.js-home');
+const searchBtn = headerEl.querySelector('.search__icon');
 
 headerEl.classList.add('header1');
+btnLibrary.classList.add('library');
 
+logoEl.addEventListener('click', onLogoBtnClick);
 homeBtnEl.addEventListener('click', onHomeBtnClick);
 libraryBtnEl.addEventListener('click', onLibraryBtnClick);
+searchBtn.addEventListener('click', onSearchBtnClick);
+
+function onSearchBtnClick() {}
+
+function onLogoBtnClick() {
+  onHomeBtnClick();
+}
 
 function onHomeBtnClick() {
   headerFilmEl.classList.add('js-is-hidden');
   headerEl.classList.add('header1');
   headerEl.classList.remove('header2');
   inputEl.classList.remove('js-is-hidden');
+  btnHome.classList.remove('home');
+  btnLibrary.classList.add('library');
 }
 
 function onLibraryBtnClick() {
@@ -21,4 +36,6 @@ function onLibraryBtnClick() {
   headerEl.classList.add('header2');
   headerEl.classList.remove('header1');
   inputEl.classList.add('js-is-hidden');
+  btnHome.classList.add('home');
+  btnLibrary.classList.remove('library');
 }
