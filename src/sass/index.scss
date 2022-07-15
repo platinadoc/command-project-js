@@ -1,6 +1,9 @@
-@import "./fonts";
 @import "./utils/utils";
-@import "./common";
-@import "./header";
-@import "./main-gallery";
+@import "./utils/common";
+@import "./utils/fonts";
+@import "./utils/mixins";
+@import "./utils/variables";
+@import "./layout/header";
+@import "./layout/main-gallery";
+@import "./layout/modal";
 

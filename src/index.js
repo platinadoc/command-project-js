@@ -1,2 +1,6 @@
 import { fetchfilm } from "./js/fetchfilm";
-fetchfilm()
+fetchfilm();
+
+import "./js/modal";
+
+
