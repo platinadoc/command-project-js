@@ -1,2 +1,2 @@
-import { fetchfilm } from "./js/fetchfilm";
-fetchfilm()
+import { fetchfilm } from './js/fetchfilm';
+fetchfilm();
