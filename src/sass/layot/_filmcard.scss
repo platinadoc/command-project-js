@@ -2,7 +2,7 @@
     cursor: pointer;
   }
   
-  .hero__imagebox {
+  .hero__box {
     position: relative;
     width: 100%;
     height: 398px;
@@ -30,13 +30,13 @@
     line-height: 1.34;
     text-transform: uppercase;
   }
-  .descriptionbox__list {
+  .hero__description--list {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
   }
   .hero__genres,
-  .hero__year,
+  .hero__date,
   .symbol {
     color: var(--accent-color);
     font-style: $base-font;
@@ -44,10 +44,10 @@
     font-size: 12px;
     line-height: 1.34;
   }
-  .hero__year {
+  .hero__date {
     margin-left: 7px;
   }
-  .hero__year::before {
+  .hero__date::before {
     position: relative;
     right: 3px;
     bottom: -2px;
