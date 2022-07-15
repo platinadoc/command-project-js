@@ -2,21 +2,14 @@
   <div class="container">
     <div class="navigation">
       <div class="navigation__logo">
-        <a href="">
+        <button class="logo__btn" type="button">
           <img src="./images/film.svg" alt="logo" />
-        </a>
-        <a href="">
-          <p class="header__film">Filmoteka</p>
-        </a>
+        </button>
+        <button type="button" class="header__film">Filmoteka</button>
       </div>
       <ul class="navigation__list">
         <li class="navigation__item">
-          <button
-            type="button"
-            id="homepage "
-            class="navigation__link js-home"
-            href=""
-          >
+          <button type="button" id="homepage " class="navigation__link js-home">
             HOME
           </button>
         </li>
@@ -25,19 +18,20 @@
             type="button"
             id="mylibrary"
             class="navigation__link js-library"
-            href=""
           >
             MY LIBRARY
           </button>
         </li>
       </ul>
     </div>
-    <label class="search" for="">
-      <input type="text" placeholder="Movie search" />
-      <a href="">
-        <img class="search__icon" src="./images/search.svg" alt="" />
-      </a>
-    </label>
+    <div class="search__form">
+      <label class="search" for="">
+        <input type="text" placeholder="Movie search" />
+      </label>
+      <button class="search__icon" type="button">
+        <img src="./images/search.svg" alt="" />
+      </button>
+    </div>
 
     <div class="button__menu js-is-hidden">
       <button class="button" type="button">Watched</button>
