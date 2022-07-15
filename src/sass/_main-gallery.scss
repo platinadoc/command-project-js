@@ -13,6 +13,7 @@
 
 .js-home-page {
     display: grid;
+    justify-content: center;
 
     @include mq(mob-only) {
         display: grid; 
@@ -55,7 +56,7 @@
             ". ."
             ". ."
             ". ."
-             ". ."
+            ". ."
             ". ."; 
     }
 
