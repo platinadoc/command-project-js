@@ -52,7 +52,16 @@ ${this.#BASE_URL}/genre/movie/list?api_key=${this.#API_KEY}&language=en-US`);
       Notiflix.Notify.warning('error id request');
     }
   }
-
+  async getImagesUrl(id) {
+    try {
+      const response = await axios.get(`
+${this.#BASE_URL}/movie/${id}/images?api_key=${this.#API_KEY}&language=en-US`);
+      return response.config.url;
+    } catch (error) {
+      console.log(error);
+      Notiflix.Notify.warning('error img request');
+    }
+  }
   setQuery(query) {
     this.query = query;
   }
