@@ -2,14 +2,13 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 5;
 
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     margin: auto;
 
-    background-color: var(#818181);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
+    background-color: var(--backdropColor);
     
     opacity: 1;
     transition: opacity var(--modal-window), visibility var(--modal-window);
