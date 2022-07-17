@@ -24,13 +24,15 @@
         </li>
       </ul>
     </div>
-    <div class="search__form">
-      <label class="search" for="">
-        <input type="text" class="js-inputSearch" placeholder="Movie search" />
-      </label>
-      <button class="search__icon" type="button">
-        <img src="./images/search.svg" alt="" />
-      </button>
+    <div class="search__container">
+      <form action="search" class="search__form">
+        <label class="search__label" for="">
+          <input type="text" class="js-inputSearch search__form--input" placeholder="Movie search" />
+        </label>
+        <button class="search__icon" type="submit">
+          <img src="./images/search.svg" alt="" />
+        </button>
+      </form>
     </div>
 
     <div class="button__menu js-is-hidden">
