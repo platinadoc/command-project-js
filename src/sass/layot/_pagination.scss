@@ -1,0 +1,64 @@
+button {
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 12px;
+}
+
+
+.is-hidden {
+    display: none;
+}
+
+.tui-pagination {
+    padding-top: 25px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    // align-items: center;
+    
+}
+
+.page-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.is-selected {
+    background: #FF6B08;
+}
+
+.move-btn-prev {
+    background-color: #f7f7f7;
+    background-image: url(../images/btn-arrow-left-pagination.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.move-btn-next {
+    background-color: #f7f7f7;
+    background-image: url(../images/btn-arrow-right-pagination.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.move-btn-first {
+    background-color: #f7f7f7;
+    background-image: url(../images/btn-previous-pagination.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+}
+
+.move-btn-last {
+    background-color: #f7f7f7;
+    background-image: url(../images/btn-next-pagination.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
