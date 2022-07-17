@@ -2,10 +2,10 @@ import { TheMovieDBApi } from './fetchfilm';
 import filmcard from '../templates/filmcard.hbs';
 import axios from 'axios';
 
-const api = new TheMovieDBApi();
+export const api = new TheMovieDBApi();
 const mainListEl = document.querySelector('.js-home-page');
 
-async function renderFilmCard() {
+export async function renderFilmCard() {
   const response = await api.fetchTrendingFilms();
 
   const films = response.data.results;

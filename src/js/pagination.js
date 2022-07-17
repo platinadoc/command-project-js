@@ -38,9 +38,13 @@ async function fetchPerPage(page) {
   // appendGalleryMarkup(response.hits);
   // api.innerHTML = cardTpl(response.results);
   // console.log(cardTpl);
-  if (page === 1) pagination.reset(response.total_results);
+  console.log(response.data.total_results);
+  if (page === 1) pagination.reset(response.data.total_results);
 }
 document.onload = fetchPerPage(1);
+
+
+fanction find
 
 
 
