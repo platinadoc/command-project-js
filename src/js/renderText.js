@@ -10,22 +10,14 @@ async function renderFilmCard() {
 
   const films = response.data.results;
   const genresIds = await api.getGenres();
-  console.log(genresIds);
   films.map(el => {
-    let arrayGenders = [];
-    arrayGenders = el.genre_ids;
-
-    arrayGenders.map((el, i) => {
-      const arrayLength = arrayGenders.length;
-      const filtredArrey = arrayGenders.splice(0, arrayLength, genresIds[el]);
-
-      el.genre_ids = filtredArrey;
+    const changedGenders = el.genre_ids.map(el => {
+      el = genresIds[el];
+      return el;
     });
-    return el;
+    el.genre_ids = changedGenders;
   });
-  console.log(films);
   const filmItemsMarkup = filmcard(films);
-
   mainListEl.innerHTML = filmItemsMarkup;
 }
 renderFilmCard();

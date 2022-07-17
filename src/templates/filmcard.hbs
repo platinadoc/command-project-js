@@ -3,7 +3,7 @@
     <div class='hero__box average__position'>
       <img
         class='hero__image'
-        src={{poster_path}}
+        src="https://image.tmdb.org/t/p/w500{{poster_path}}"
         alt='{{title}}'
         data-src='{{id}}'
       />
@@ -14,15 +14,16 @@
       <div class='hero__description'>
         <ul class='hero__description--list'>
           <li class='hero__description--Item'>
-            {{#each genres_ids}}
-              <span class='hero__genres'>{{this}}</span>
-              <span class='symbol'>,</span>
+           
+              <span class='hero__genres'>{{genre_ids}}</span>
+              
+              {{!-- <span class='symbol'>,</span> --}}
               <span
                 class='parameter__value parameter__position'
-              >{{vote_average}}</span>{{/each}}
+              >{{vote_average}}</span>
           </li>
           <li class='hero__description--Item'>
-            <p class='hero__date'>{{date}}</p>
+            <p class='hero__date'>{{release_date}}</p>
           </li>
         </ul>
       </div>
