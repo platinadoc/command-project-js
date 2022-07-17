@@ -1,10 +1,17 @@
-import createModal from "../templetes/modal.hbs";
+import createModal from "../templates/modal.hbs";
 
-const modalBtnEl = document.querySelector('#myBtn');
-const modalContainerEl = document.querySelector('#myModal');
-modalBtnEl.addEventListener('click', onModalBtnClick);
+const openModalBtnEl = document.querySelector('[data-modal-open]');
+const closeModalBtnEl = document.querySelector('[data-modal-close]');
+const modalBackdropEl = document.querySelector('[data-modal]');
+const modalEl = document.querySelector('.modal');
+const body = document.querySelector("body");
 
-export function onModalBtnClick() {
-    modalContainerEl.innerHTML = createModal();
+modalEl.innerHTML = createModal();
+
+openModalBtnEl.addEventListener('click', toggleModal);
+closeModalBtnEl.addEventListener('click', toggleModal);
+
+function toggleModal() {
+    modalBackdropEl.classList.toggle("is-hidden");
+    body.classList.toggle("no-scroll");
 }
-
