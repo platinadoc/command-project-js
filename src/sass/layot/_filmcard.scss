@@ -5,7 +5,15 @@
 .hero__box {
   position: relative;
   width: 100%;
-  height: 398px;
+  @include mq (mob) {
+    height: 398px;
+  }
+  @include mq (tab) {
+    height: 455px;
+  }
+  @include mq (desk) {
+  height: 574px;
+  }
   margin-bottom: 10px;
 }
 
