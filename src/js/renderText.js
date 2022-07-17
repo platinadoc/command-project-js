@@ -10,7 +10,6 @@ async function renderFilmCard() {
 
   const films = response.data.results;
   const genresIds = await api.getGenres();
-  console.log(genresIds);
   films.map(el => {
     const changedGenders = el.genre_ids.map(el => {
       el = genresIds[el];
@@ -18,16 +17,7 @@ async function renderFilmCard() {
     });
     el.genre_ids = changedGenders;
   });
-  const filmId = films.map(el => el.id);
-  console.log(
-    filmId
-      .map(el => api.getImagesUrl(el))
-      .map(el => el.then(url => console.log(url)))
-  );
-
-  console.log(films);
   const filmItemsMarkup = filmcard(films);
-  console.log(filmItemsMarkup);
   mainListEl.innerHTML = filmItemsMarkup;
 }
 renderFilmCard();
