@@ -1,0 +1,21 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+
+    background-color: var(--backdropColor);
+    
+    opacity: 1;
+    transition: opacity var(--modal-window), visibility var(--modal-window);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
