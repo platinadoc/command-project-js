@@ -3,7 +3,7 @@
     <div class='hero__box average__position'>
       <img
         class='hero__image'
-        src="https://api.themoviedb.org/3/movie/507086/images?api_key=df75de766bc216630e148042dff14934&language=en-US"
+        src="https://image.tmdb.org/t/p/w500{{poster_path}}"
         alt='{{title}}'
         data-src='{{id}}'
       />
@@ -17,7 +17,7 @@
            
               <span class='hero__genres'>{{genre_ids}}</span>
               
-              <span class='symbol'>,</span>
+              {{!-- <span class='symbol'>,</span> --}}
               <span
                 class='parameter__value parameter__position'
               >{{vote_average}}</span>
