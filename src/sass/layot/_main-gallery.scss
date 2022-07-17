@@ -1,13 +1,8 @@
-// .section {
-
-// }
-
 .container {
     width: 100%;
     margin-right: 0;
     margin-left: 0;
     padding-bottom: 62px;
-
     text-align: center;
 }
 
@@ -41,14 +36,14 @@
             "."
             "."
             "."
-            "."; 
+            ".";
     }
 
     @include mq(tab) {
-        grid-template-columns: 336px 336px; 
-        grid-template-rows: 495px 495px 495px 495px 495px 495px 495px 495px 495px; 
-        gap: 32px 32px; 
-        grid-template-areas: 
+        grid-template-columns: 336px 336px;
+        grid-template-rows: 495px 495px 495px 495px 495px 495px 495px 495px 495px;
+        gap: 32px 32px;
+        grid-template-areas:
             ". ."
             ". ."
             ". ."
@@ -57,21 +52,21 @@
             ". ."
             ". ."
             ". ."
-            ". ."; 
+            ". .";
     }
 
     @include mq(desk) {
-        grid-template-columns: 395px 395px 395px; 
-        grid-template-rows: 634px 634px 634px 634px 634px 634px 634px; 
-        gap: 32px 16px; 
-        grid-template-areas: 
+        grid-template-columns: 395px 395px 395px;
+        grid-template-rows: 634px 634px 634px 634px 634px 634px 634px;
+        gap: 32px 16px;
+        grid-template-areas:
             ". . ."
             ". . ."
             ". . ."
             ". . ."
             ". . ."
             ". . ."
-            ". . .";  
+            ". . .";
     }
 }
 
@@ -80,16 +75,16 @@
     display: grid;
 
     @include mq(mob-only) {
-        display: grid; 
-        grid-auto-columns: 1fr; 
-        grid-template-columns: 280px; 
-        grid-template-rows: 438px 438px 438px 438px; 
-        gap: 20px 0; 
-        grid-template-areas: 
+        display: grid;
+        grid-auto-columns: 1fr;
+        grid-template-columns: 280px;
+        grid-template-rows: 438px 438px 438px 438px;
+        gap: 20px 0;
+        grid-template-areas:
             "."
             "."
             "."
-            "."; 
+            ".";
     }
 
     @include mq(tab) {
@@ -100,16 +95,16 @@
             ". ."
             ". ."
             ". ."
-            ". ."; 
+            ". .";
     }
 
     @include mq(desk) {
-        grid-template-columns: 395px 395px 395px; 
-        grid-template-rows: 634px 634px 634px; 
-        gap: 32px 16px; 
-        grid-template-areas: 
+        grid-template-columns: 395px 395px 395px;
+        grid-template-rows: 634px 634px 634px;
+        gap: 32px 16px;
+        grid-template-areas:
             ". . ."
             ". . ."
-            ". . .";  
+            ". . .";
     }
 }
