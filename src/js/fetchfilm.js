@@ -20,7 +20,6 @@ export class TheMovieDBApi {
       return response;
     } catch (error) {
       console.log(error);
-      Notiflix.Notify.warning('error');
     }
   }
 

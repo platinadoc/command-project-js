@@ -3,7 +3,6 @@
 }
 
 .hero__box {
-  position: relative;
   width: 100%;
   @include mq (mob) {
     height: 398px;
@@ -24,10 +23,26 @@
   object-fit: cover;
 }
 .parameter__position {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  margin-right: 0;
+  display: none;
+  
+}
+.parameter__position--visible{
+  background-color: var(--accent-color);
+    width: 40px;
+    height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 5px;
+    align-items: center;
+    margin-right: 0;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.17;
+    display: flex;
+    bottom: 0;
+    right: 0;
+    justify-content: space-around;
 }
 
 .hero__title {
@@ -42,6 +57,14 @@
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
+}
+.hero__description--Item{
+  display: flex;
+  align-content: stretch;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .hero__genres,
 .hero__date,
