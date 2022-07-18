@@ -1,19 +1,21 @@
-  <div class="modal__thumb">
-    <img src="./images/poster-desk-1x.jpg" alt="poster a fistiful of lead" class="modal__image">
+ <div class="modal__thumb">
+    <img src="https://image.tmdb.org/t/p/w500{{poster_path}}"
+        alt='{{title}}'
+        data-src='{{id}}' class="modal__image">
     {{!-- <img srcset="./images/poster-mob-1x.jpg 240w, ./images/poster-tab-1x.jpg 264w, ./images/poster-desk-1x.jpg 375w, ./images/poster-mob-2x.jpg 480w, ./images/team-card-1-tab-2x.jpg 528w, ./images/poster-desk-2x.jpg 750w" sizes="(min-width: 1280px) 375px, (min-width: 768px) 264px, (min-width: 320px) 240px, 100vw" src="./images/poster-mob-1x.jpg" alt="poster a fistiful of lead" class="modal__image">       --}}
   </div>
   <div class="modal__descr">
-    <h2 class="modal__descr-title">a fistiful of lead</h2>
+    <h2 class="modal__descr-title">{{title}}</h2>
     <ul class="modal__descr-list">
       <li class="modal__descr-list-item">
         <p class="modal__descr-list-text--accented">
           <span class="modal__descr-list-key">Vote / Votes</span>
           <span class="modal__descr-list-value-block--accented">
-            <span class="modal__descr-list-value--accented">7.3</span>
+            <span class="modal__descr-list-value--accented">{{vote_average}}</span>
           </span>
           <span class="modal__descr-list-value-separator">/</span>
           <span class="modal__descr-list-value-block--unaccented">
-            <span class="modal__descr-list-value--unaccented">1260</span>
+            <span class="modal__descr-list-value--unaccented">{{vote_count}}</span>
           </span>
 
         </p>
@@ -21,28 +23,30 @@
         <li class="modal__descr-list-item">
         <p class="modal__descr-list-text">
           <span class="modal__descr-list-key">Popularity</span>
-          <span class="modal__descr-list-value"> 100.2</span>
+          <span class="modal__descr-list-value">{{popularity}}</span>
         </p>
       </li>
       <li class="modal__descr-list-item">
         <p class="modal__descr-list-text">
           <span class="modal__descr-list-key">Original Title</span>
-          <span class="modal__descr-list-value--uppercased">a fistiful of lead</span>
+          <span class="modal__descr-list-value--uppercased">{{original_title}}</span>
         </p>
       </li>
       <li class="modal__descr-list-item">
         <p class="modal__descr-list-text">
           <span class="modal__descr-list-key">Genre</span>
-          <span class="modal__descr-list-value">Western</span>
+          <span class="modal__descr-list-value">
+            {{#each genres}}
+              <span class="modal__descr-list-value--listed">{{name}}</span>
+            {{/each}}
+          </span>
         </p>
       </li>
     </ul>
     <h3 class="modal__descr-subtitle">About</h3>
-    <p class="modal__descr-text">Four of the West’s most infamous outlaws assemble to steal a huge stash of gold from the most corrupt settlement of the gold rush towns. But not all goes to plan one is killed and the other three escapes with bags of gold hide out in the abandoned gold mine where they happen across another gang of three – who themselves were planning to hit the very same bank! As tensions rise, things go from bad to worse as they realise the bags of gold are filled with lead... they’ve been double crossed – but by who and how?
-    </p>
+    <p class="modal__descr-text">{{overview}}</p>
     <div class="modal__button-block">
       <button type="button" class="modal__button" data-add="watched">add to Watched</button>
       <button type="button" class="modal__button" data-add="queue">add to queue</button>
     </div>
   </div>
-
