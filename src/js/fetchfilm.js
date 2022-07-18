@@ -6,18 +6,24 @@ export class TheMovieDBApi {
   #API_KEY = 'df75de766bc216630e148042dff14934';
   constructor() {
     this.query = null;
+    this.page = 1;
+    this.totalPages = 0;
+    this.totalItems = 0;
+
   }
   async fetchFilms() {
     const searchParams = new URLSearchParams({
       api_key: this.#API_KEY,
       query: this.query,
+      page:this.page,
     });
     try {
       const response = await axios.get(
         `${this.#BASE_URL}/search/movie?${searchParams}`
       );
-
-      return response;
+      // this.totalPages = response.data.total_pages;
+      return response
+      // .data;
     } catch (error) {
       console.log(error);
     }
@@ -26,10 +32,11 @@ export class TheMovieDBApi {
   async fetchTrendingFilms() {
     try {
       const response = await axios.get(
-        `${this.#BASE_URL}/trending/movie/day?api_key=${this.#API_KEY}`
+        `${this.#BASE_URL}/trending/movie/day?api_key=${this.#API_KEY}&page=${this.page}`
       );
-
-      return response;
+      // this.totalPages = response.data.total_pages;
+      // this.totalItems = response.data.total_results;
+       return response;
     } catch (error) {
       console.log(error);
       Notiflix.Notify.warning('error');
