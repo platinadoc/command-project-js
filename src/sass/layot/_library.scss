@@ -1,232 +1,232 @@
-.library-movies {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  list-style: none;
-  color: var(--primaryTextColor);
-  width: 280px;
-  margin: 0 auto 50px;
-  padding: 0;
-  margin-bottom: 90px;
+// .library-movies {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+//   list-style: none;
+//   color: var(--primaryTextColor);
+//   width: 280px;
+//   margin: 0 auto 50px;
+//   padding: 0;
+//   margin-bottom: 90px;
 
-  .lbr-movie-card {
-    position: relative;
-    width: 280px;
-    display: flex;
-    flex-direction: column;
-    font-size: 12px;
-    line-height: 1.3;
-    justify-content: space-between;
-    padding-bottom: 20px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid var(--accent-color);
+//   .lbr-movie-card {
+//     position: relative;
+//     width: 280px;
+//     display: flex;
+//     flex-direction: column;
+//     font-size: 12px;
+//     line-height: 1.3;
+//     justify-content: space-between;
+//     padding-bottom: 20px;
+//     margin-bottom: 10px;
+//     border-bottom: 1px solid var(--accent-color);
 
-    .lbr-movie__img {
-      width: 280px;
-      background-color: var(--footer-BG-Color);
-    }
+//     .lbr-movie__img {
+//       width: 280px;
+//       background-color: var(--footer-BG-Color);
+//     }
 
-    .lbr-movie__info {
-      padding: 0 10px;
+//     .lbr-movie__info {
+//       padding: 0 10px;
 
-      .lbr-movie__name {
-        font-family: $base-font;
-        font-weight: 500;
-        text-transform: uppercase;
-        margin: 0;
-        margin-top: 10px;
-        font-size: 20px;
-      }
-      .lbr-movie__date {
-        margin: 0;
-        font-family: $base-font;
-        font-weight: 500;
-        color: var(--accent-color);
-        margin-bottom: 10px;
-      }
+//       .lbr-movie__name {
+//         font-family: $base-font;
+//         font-weight: 500;
+//         text-transform: uppercase;
+//         margin: 0;
+//         margin-top: 10px;
+//         font-size: 20px;
+//       }
+//       .lbr-movie__date {
+//         margin: 0;
+//         font-family: $base-font;
+//         font-weight: 500;
+//         color: var(--accent-color);
+//         margin-bottom: 10px;
+//       }
 
-      .lbr-scores__data {
-        margin: 0;
-        margin-bottom: 10px;
-        display: flex;
+//       .lbr-scores__data {
+//         margin: 0;
+//         margin-bottom: 10px;
+//         display: flex;
 
-        .scores__rating--orange {
-          background-color: var(--accent-color);
-          color: var(--secondaryTextColor);
-          margin-right: 6px;
-          padding: 2px 4px 0;
-          border-radius: 4px;
-        }
-        .scores__rating {
-          background-color: var(--footer-BG-color);
-          border-radius: 4px;
-          margin-left: 6px;
-          padding: 2px 4px 0;
-        }
-      }
-      .lbr-details__data {
-        margin: 0;
-        margin-bottom: 10px;
-      }
-      .movie__genres--list {
-        display: flex;
-        margin: 0;
-        margin-bottom: 10px;
+//         .scores__rating--orange {
+//           background-color: var(--accent-color);
+//           color: var(--secondaryTextColor);
+//           margin-right: 6px;
+//           padding: 2px 4px 0;
+//           border-radius: 4px;
+//         }
+//         .scores__rating {
+//           background-color: var(--footer-BG-color);
+//           border-radius: 4px;
+//           margin-left: 6px;
+//           padding: 2px 4px 0;
+//         }
+//       }
+//       .lbr-details__data {
+//         margin: 0;
+//         margin-bottom: 10px;
+//       }
+//       .movie__genres--list {
+//         display: flex;
+//         margin: 0;
+//         margin-bottom: 10px;
 
-        .genres__item {
-          font-size: 11px;
-          line-height: 1.8;
-          color: var(--primaryTextColor);
+//         .genres__item {
+//           font-size: 11px;
+//           line-height: 1.8;
+//           color: var(--primaryTextColor);
 
-          &:not(:first-child) {
-            margin-left: 6px;
-          }
-        }
-      }
+//           &:not(:first-child) {
+//             margin-left: 6px;
+//           }
+//         }
+//       }
 
-      .lbr-movie__text {
-        margin: 0;
-        font-size: 11px;
-        line-height: 1.8;
-      }
-    }
-    .overlay {
-      position: absolute;
-      background-color: var(--modalTextColor);
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: all 200ms linear;
+//       .lbr-movie__text {
+//         margin: 0;
+//         font-size: 11px;
+//         line-height: 1.8;
+//       }
+//     }
+//     .overlay {
+//       position: absolute;
+//       background-color: var(--modalTextColor);
+//       top: 0;
+//       right: 0;
+//       width: 100%;
+//       height: 100%;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       opacity: 0;
+//       transition: all 200ms linear;
 
-      &:hover {
-        opacity: 1;
-      }
+//       &:hover {
+//         opacity: 1;
+//       }
 
-      .delete {
-        cursor: pointer;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        border: none;
-        background: none;
-        // background-image: url(./images/delete-icon.svg);
-      }
-    }
-  }
-}
-
-.lbr-details__name,
-.lbr-movie__scores,
-.lbr-movie__genres,
-.lbr-movie__about {
-  margin: 0;
-  padding: 0;
-  width: 90px;
-  color: var(--footerTextColor);
-  font-size: 12px;
-}
-
-.placeholder__wrapper {
-  margin: 0 auto;
-  text-align: center;
-
-  .lib {
-    text-transform: uppercase;
-    color: var(--accent-color);
-  }
-}
-
-@media screen and (min-width: 768px) {
-  #content {
-    padding-top: 28px;
-  }
-
-  .library-movies {
-    width: 748px;
-    grid-template-columns: 1fr;
-    grid-gap: 30px;
-
-    .lbr-movie-card {
-      width: 688px;
-      flex-direction: row;
-      justify-content: space-between;
-
-      .lbr-movie__info {
-        .lbr-movie__name {
-          margin-top: 0;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .library-movies {
-    width: 875px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(425px, 1fr));
-    grid-gap: 25px;
-
-    .lbr-movie-card {
-      width: 425px;
-
-      .lbr-movie__img {
-        width: 212px;
-        object-fit: contain;
-        object-position: top;
-        background: none;
-      }
-    }
-  }
-}
-
-// navigation
-
-// .my-library {
-//   background: url('./images/header_queue_watched_mobile.png'),
-//     linear-gradient(var(--footerTextColor), var(--footerTextColor));
-.page__nav {
-  padding: 46px 20px;
-}
-
-.library__button {
-  width: 130px;
-  height: 44px;
-  border: 1px solid var(--secondaryTextColor);
-  border-radius: 5px;
-  color: var(--secondaryTextColor);
-  font-size: 12px;
-  line-height: 16px;
-  background: transparent;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.library__button--active {
-  border: none;
-  outline: none;
-}
-
-@media (min-width: 767px) {
-  // .my-library {
-  // background: url('./images/header_queue_watched_tablet.png'),
-  // linear-gradient(var(--footerTextColor), var(--footerTextColor));
-  .page__nav {
-    padding: 46px 74px 42px;
-  }
-}
-.library__button {
-  width: 140px;
-  margin-right: 20px;
-}
-
-// @media screen and (min-width: 1280px) {
-//   .my-library {
-//     background: url('./images/header_queue_watched_desktop.png'),
-//       linear-gradient(var(--footerTextColor), var(--footerTextColor));
+//       .delete {
+//         cursor: pointer;
+//         width: 60px;
+//         height: 60px;
+//         border-radius: 50%;
+//         border: none;
+//         background: none;
+//         // background-image: url(./images/delete-icon.svg);
+//       }
+//     }
 //   }
 // }
+
+// .lbr-details__name,
+// .lbr-movie__scores,
+// .lbr-movie__genres,
+// .lbr-movie__about {
+//   margin: 0;
+//   padding: 0;
+//   width: 90px;
+//   color: var(--footerTextColor);
+//   font-size: 12px;
+// }
+
+// .placeholder__wrapper {
+//   margin: 0 auto;
+//   text-align: center;
+
+//   .lib {
+//     text-transform: uppercase;
+//     color: var(--accent-color);
+//   }
+// }
+
+// @media screen and (min-width: 768px) {
+//   #content {
+//     padding-top: 28px;
+//   }
+
+//   .library-movies {
+//     width: 748px;
+//     grid-template-columns: 1fr;
+//     grid-gap: 30px;
+
+//     .lbr-movie-card {
+//       width: 688px;
+//       flex-direction: row;
+//       justify-content: space-between;
+
+//       .lbr-movie__info {
+//         .lbr-movie__name {
+//           margin-top: 0;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media screen and (min-width: 1024px) {
+//   .library-movies {
+//     width: 875px;
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, minmax(425px, 1fr));
+//     grid-gap: 25px;
+
+//     .lbr-movie-card {
+//       width: 425px;
+
+//       .lbr-movie__img {
+//         width: 212px;
+//         object-fit: contain;
+//         object-position: top;
+//         background: none;
+//       }
+//     }
+//   }
+// }
+
+// // navigation
+
+// // .my-library {
+// //   background: url('./images/header_queue_watched_mobile.png'),
+// //     linear-gradient(var(--footerTextColor), var(--footerTextColor));
+// .page__nav {
+//   padding: 46px 20px;
+// }
+
+// .library__button {
+//   width: 130px;
+//   height: 44px;
+//   border: 1px solid var(--secondaryTextColor);
+//   border-radius: 5px;
+//   color: var(--secondaryTextColor);
+//   font-size: 12px;
+//   line-height: 16px;
+//   background: transparent;
+//   text-transform: uppercase;
+//   cursor: pointer;
+// }
+
+// .library__button--active {
+//   border: none;
+//   outline: none;
+// }
+
+// @media (min-width: 767px) {
+//   // .my-library {
+//   // background: url('./images/header_queue_watched_tablet.png'),
+//   // linear-gradient(var(--footerTextColor), var(--footerTextColor));
+//   .page__nav {
+//     padding: 46px 74px 42px;
+//   }
+// }
+// .library__button {
+//   width: 140px;
+//   margin-right: 20px;
+// }
+
+// // @media screen and (min-width: 1280px) {
+// //   .my-library {
+// //     background: url('./images/header_queue_watched_desktop.png'),
+// //       linear-gradient(var(--footerTextColor), var(--footerTextColor));
+// //   }
+// // }

@@ -60,11 +60,11 @@ function onQueueBtnClick() {
 }
 
 function getWatchedMovies() {
-  return JSON.parse(localStorage.getItem("watched"));
+  return JSON.parse(localStorage.getItem("watched")) || [];
 }
 
 function getQueueMovies() {
-  return JSON.parse(localStorage.getItem("queue"));
+  return JSON.parse(localStorage.getItem("queue")) || [];
 }
 
 function myLibraryMarkUp(data, ref) {
