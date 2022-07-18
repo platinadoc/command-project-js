@@ -11,6 +11,13 @@ export async function renderFilmCard() {
   const films = response.data.results;
   const genresIds = await api.getGenres();
   films.map(el => {
+    if (!el.poster_path) {
+      el.poster_path = placeholder;
+    } else {
+      el.poster_path = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
+    }
+  });
+  films.map(el => {
     const changedGenders = el.genre_ids.map(el => {
       el = genresIds[el];
       return el;

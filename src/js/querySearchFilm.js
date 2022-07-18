@@ -1,6 +1,7 @@
 import { TheMovieDBApi } from './fetchfilm';
 import filmcard from '../templates/filmcard.hbs';
 import Notiflix from 'notiflix';
+import placeholder from '../images/placeholder.png';
 
 const api = new TheMovieDBApi();
 const formEl = document.querySelector('.search__form');
@@ -15,6 +16,14 @@ const onInputChange = async evt => {
   api.setQuery(inputValue);
   const getQueryFilms = await api.fetchFilms();
   const filmArray = getQueryFilms.data.results;
+  console.log(filmArray);
+  filmArray.map(el => {
+    if (!el.poster_path) {
+      el.poster_path = placeholder;
+    } else {
+      el.poster_path = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
+    }
+  });
   if (filmArray.length === 0) {
     Notiflix.Notify.warning('Nothing found');
     return;
