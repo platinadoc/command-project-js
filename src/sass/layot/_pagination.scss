@@ -1,0 +1,88 @@
+button {
+    border-radius: 5px;
+    border: none;
+    padding: 5px 12px;
+    cursor: pointer;
+    
+}
+
+
+.is-hidden {
+    display: none;
+}
+
+.tui-pagination {
+    padding-top: 60px;
+    padding-bottom: 55px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.page-btn {    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 10px; 
+    $base-font: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;   
+    cursor: pointer;    
+    color: var(--primaryTextColor);
+
+
+}
+
+.is-selected {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    color: var(--secondaryTextColor);
+    background: var( --accent-color);
+}
+
+.move-btn-prev {    
+    width: 40px;
+    height: 40px;
+    background-color:  var(--footer-BG-Color);
+    background-image: url(../images/btn-arrow-left-pagination.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    // background-size: contain;
+}
+
+.move-btn-next {
+    width: 40px;
+    height: 40px;
+    background-color:  var(--footer-BG-Color);
+    background-image: url(../images/btn-arrow-right-pagination.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    // background-size: contain;
+}
+
+.move-btn-first {
+    width: 40px;
+    height: 40px;
+    background-color:  var(--footer-BG-Color);
+    background-image: url(../images/btn-previous-pagination.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    // background-size: contain;
+
+}
+
+.move-btn-last {
+    width: 40px;
+    height: 40px;
+    background-color: var(--footer-BG-Color);
+    background-image: url(../images/btn-next-pagination.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    // background-size: contain;
+}
