@@ -35,8 +35,6 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  z-index: 10;
-  
   // right: 20px;
   // left: 20px;
 
@@ -91,28 +89,22 @@ button {
     margin-left: auto;
 
     background: var(--secondaryTextColor);
-    border: 1px solid var(--primaryTextColor);
+    border: 1px solid var(--secondaryTextColor);
     border-radius: 15px;
-
-    &:hover,
-    &:focus {
-      border-color: var(--accent-color);
-    }
 }
 
 .modal__icon {
     position:relative;
     top: 50%;
     right: 50%;
-    transform: translate(100%, -50%);
+    transform: translate(50%, -50%);
 
-    width: 14px;    
-    height: 14px;
-    // z-index: 10;
+    width: 20px;    
+    height: 20px;
 
     fill: var(--primaryTextColor);
 
-    // transition: fill var(--transition);
+    transition: fill var(--transition);
 
     .modal__btn:hover &,
     .modal__btn:focus & {
