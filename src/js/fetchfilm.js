@@ -21,8 +21,9 @@ export class TheMovieDBApi {
       const response = await axios.get(
         `${this.#BASE_URL}/search/movie?${searchParams}`
       );
-      this.totalPages = response.data.total_pages;
-      return response.data;
+      // this.totalPages = response.data.total_pages;
+      return response
+      // .data;
     } catch (error) {
       console.log(error);
     }
@@ -33,8 +34,8 @@ export class TheMovieDBApi {
       const response = await axios.get(
         `${this.#BASE_URL}/trending/movie/day?api_key=${this.#API_KEY}&page=${this.page}`
       );
-      this.totalPages = response.data.total_pages;
-      this.totalItems = response.data.total_results;
+      // this.totalPages = response.data.total_pages;
+      // this.totalItems = response.data.total_results;
        return response;
     } catch (error) {
       console.log(error);
