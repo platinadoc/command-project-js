@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
+import { starSpinner, closeSpinner } from './spinner';
 
 export class TheMovieDBApi {
   #BASE_URL = 'https://api.themoviedb.org/3';
@@ -47,6 +48,7 @@ export class TheMovieDBApi {
   }
 
   async fetchTrendingFilms() {
+    starSpinner()
     try {
       const response = await axios.get(
         `${this.#BASE_URL}/trending/movie/day?api_key=${this.#API_KEY}&page=${this.page}`
@@ -58,6 +60,7 @@ export class TheMovieDBApi {
       console.log(error);
       Notiflix.Notify.warning('error');
     }
+    finally {closeSpinner()};
   }
   
   async getGenres() {

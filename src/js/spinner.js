@@ -1,22 +1,10 @@
-function startSpinner() {
-  spinnerRef.classList.remove('visually-hidden');
-  spinnerDotsRefs.classList.remove('visually-hidden');
+import createSpinner from '../templates/spinner.hbs'
+const bodyEl = document.body;
+export function starSpinner () {
+  bodyEl.insertAdjacentHTML('afterbegin', createSpinner());
 }
 
-function stopSpinner() {
-  spinnerRef.classList.add('visually-hidden');
-  spinnerDotsRefs.classList.add('visually-hidden');
-}
-
-async function createMarkup() {
-  startSpinner();
-  try {
-    const data = await api.fetchfilm();
-    const result = await data.results;
-    const markup = await TheMovieDBApi(result);
-
-    insertPoint.insertAdjacentHTML('beforeend', card(markup));
-  } catch (error) {
-    console.error(error);
-  }
+export function closeSpinner () {
+  bodyEl.querySelector('.spinner').remove();
+  console.log(bodyEl.querySelector('.spinner'))
 }
