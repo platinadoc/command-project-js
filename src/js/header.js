@@ -38,8 +38,6 @@ function onHomeBtnClick() {
 
   galleryContainerEl.classList.add('js-home-page');
   galleryContainerEl.classList.remove('js-library-page');
-  
-  renderFilmCard();
 }
 
 function onLibraryBtnClick() {
@@ -52,6 +50,4 @@ function onLibraryBtnClick() {
 
   galleryContainerEl.classList.add('js-library-page');
   galleryContainerEl.classList.remove('js-home-page');
-
-  renderLibraryFilmCard();
 }
