@@ -31,6 +31,9 @@ pagination.on('afterMove', event => {
 // const libraryListEl = document.querySelector('.js-gallery-page');
 
 export async function renderFilmCard() {
+  if (!api.genresMap){
+    await api.getGenres();
+  }
   const response = await api.fetchTrendingFilms();
   renderFilmsList(response.data.results);
   pagination.reset(response.data.total_results);
@@ -44,25 +47,25 @@ async function renderTrendingPerPage (page) {
 }
 
 async function renderFilmsList (films) {   
-  const genresIds = await api.getGenres();
-  films.map(el => {
+  const genresIds = api.genresMap;
+  const convertedFilms = films.map(el => {
     if (!el.poster_path) {
       el.poster_path = placeholder;
     } else {
       el.poster_path = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
     }
-  });
-  films.map(el => {
     const changedGenders = el.genre_ids.map(el => {
       el = genresIds[el];
       return el;
     });
     el.genre_ids = changedGenders;
-  });
+    return el
+  })
+ 
  
 
   // libraryListEl.innerHTML = '';
-  const filmItemsMarkup = filmcard(films);
+  const filmItemsMarkup = filmcard(convertedFilms);
   mainListEl.innerHTML = filmItemsMarkup;
 }
 
