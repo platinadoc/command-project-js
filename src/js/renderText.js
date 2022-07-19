@@ -1,8 +1,10 @@
 import Pagination from 'tui-pagination';
 import { TheMovieDBApi } from './fetchfilm';
 import filmcard from '../templates/filmcard.hbs';
-import axios from 'axios';
+import { spinnedFn } from './spinner';
 import placeholder from '../images/placeholder.png';
+import useSpinner from 'use-spinner';
+import 'use-spinner/assets/use-spinner.css';
 // import { pagination } from './pagination';
 
 export const api = new TheMovieDBApi();
@@ -27,6 +29,7 @@ export const pagination = new Pagination(container, {
 pagination.on('afterMove', event => {
   const currentPage = event.page;
   renderTrendingPerPage(currentPage);
+  
 });
 // const libraryListEl = document.querySelector('.js-gallery-page');
 
@@ -34,6 +37,9 @@ export async function renderFilmCard() {
   if (!api.genresMap){
     await api.getGenres();
   }
+  const fetchWithSpinner = useSpinner(api.fetchTrendingFilms,{container: 'body'});
+  // const response = await fetchWithSpinner();
+  
   const response = await api.fetchTrendingFilms();
   renderFilmsList(response.data.results);
   pagination.reset(response.data.total_results);
