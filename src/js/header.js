@@ -12,7 +12,7 @@ const searchBtn = headerEl.querySelector('.search__icon');
 const watchedBtnEl = headerEl.querySelector('.watched-button');
 const queueBtnEl = headerEl.querySelector('.queue-button');
 
-const galleryContainerEl = document.querySelector('.js-main-container-list');
+export const galleryContainerEl = document.querySelector('.js-main-container-list');
 
 headerEl.classList.add('header1');
 btnLibrary.classList.add('library');
