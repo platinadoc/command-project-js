@@ -32,7 +32,8 @@ export class TheMovieDBApi {
 
   async fetchFilmById(id) {
     const params = new URLSearchParams({
-      api_key: this.#API_KEY
+      api_key: this.#API_KEY,
+      language: 'en-US',
     });
     try {
       const response = await axios.get(

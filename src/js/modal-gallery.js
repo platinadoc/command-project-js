@@ -2,17 +2,14 @@ import createModal from "../templates/modal-gallery.hbs";
 // import axios from "axios";
 import { TheMovieDBApi } from './fetchfilm';
 
-
 const openModalEl = document.querySelector('.js-home-page');
-
 const modalBackdropEl = document.querySelector('[data-modal]');
 const closeModalBtnEl = document.querySelector('[data-modal-close]');
-
 const modalEl = document.querySelector('.modal__body');
 const outsideModalEl = document.querySelector(".backdrop");
 const body = document.querySelector("body");
 
-// let movie_id = null;
+let movie_id = null;
 
 // class TheMovieDBApi {
 //     #BASE_URL = 'https://api.themoviedb.org/3';
@@ -57,13 +54,18 @@ function onOpenModalClick(e) {
     outsideModalEl.addEventListener('click', onOutsideModalClick);
 
     if (e.target.dataset.id) {
-        movie_id = Number(e.target.dataset.id)
+        movie_id = Number(e.target.dataset.id);
+
+        console.log(e.target.dataset.id);
+
     } else if (e.target.dataset.src) {
         movie_id = Number(e.target.dataset.src);
+
+        console.log(e.target.dataset.src);
     } else {
         return;
     }
-
+ 
     renderModalCard(movie_id);
 
     // const cardObj = api.fetchFilmsById(movie_id);
