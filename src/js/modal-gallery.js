@@ -13,6 +13,9 @@ openModalEl.addEventListener('click', onOpenModalClick);
 
 function onOpenModalClick(e) {
     if (e.target === e.currentTarget) return;
+    
+    const data = { id: e.target.dataset.src };
+    // modalEl.innerHTML = createModal(data);
 
     modalBackdropEl.classList.remove("visually__hidden");
     body.classList.add("no-scroll");
@@ -21,6 +24,12 @@ function onOpenModalClick(e) {
     body.addEventListener('keydown', onEscapeBtnClick);
     outsideModalEl.addEventListener('click', onOutsideModalClick);
 
+    const addToWatchedBtnEl = document.querySelector('.js-addToWatched');
+    addToWatchedBtnEl.addEventListener('click', addWatchedMovie);
+
+    const addToQueueBtnEl = document.querySelector('.js-addToQueue');
+    addToQueueBtnEl.addEventListener('click', addQueueMovie);
+    
     const dataId = e.target.dataset;
 
     if (dataId.id) {
@@ -65,6 +74,31 @@ function onOutsideModalClick(e) {
     if (e.target !== e.currentTarget) return;
   
     onCloseModalClick();
+}
+
+function addWatchedMovie(e) {
+    const movieId = e.target.dataset.id;
+    const watchedList = JSON.parse(localStorage.getItem("watched")) || [];
+    const idx = watchedList.indexOf(movieId);
+    if (idx === -1) {
+        watchedList.push(movieId);
+    } else {
+        watchedList.splice(idx, 1);
+    }
+    localStorage.setItem("watched", JSON.stringify(watchedList));
+}
+
+
+function addQueueMovie(e) {
+    const movieId = e.target.dataset.id;
+    const queueList = JSON.parse(localStorage.getItem("queue")) || [];
+    const idx = queueList.indexOf(movieId);
+    if (idx === -1) {
+        queueList.push(movieId);
+    } else {
+        queueList.splice(idx, 1);
+    }
+    localStorage.setItem("queue", JSON.stringify(queueList));
 }
 
 async function renderModalCard(movie_id) {
