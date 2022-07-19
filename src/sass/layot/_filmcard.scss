@@ -40,10 +40,15 @@
   color: inherit;
   font-style: $base-font;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 1.2;
+  font-size: 12px;
+  line-height: 1.33;
   text-transform: uppercase;
   margin: 0;
+
+  @include mq(desk) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
 }
 
 .hero__description--list {
@@ -70,9 +75,17 @@
   color: var(--accent-color);
   font-style: $base-font;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 1.2;
+  font-size: 12px;
+  line-height: 1.33;
   margin: 0;
+
+  @include mq(desk) {
+    font-size: 20px;
+    line-height: 1.2;
+
+  }
+
+
 }
 
 .hero__date {
