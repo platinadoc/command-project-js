@@ -1,27 +1,27 @@
- <div class="modal__thumb">
-    <img 
-    {{#if poster_path}}
-    src="https://image.tmdb.org/t/p/w500{{poster_path}}"
-    {{else}}
-    src="http://localhost:1234/placeholder.0e013f78.png?1658232065017"
-    {{/if}}
-        alt='{{title}}'
-        data-src='{{id}}' class="modal__image">
-    {{!-- <img srcset="./images/poster-mob-1x.jpg 240w, ./images/poster-tab-1x.jpg 264w, ./images/poster-desk-1x.jpg 375w, ./images/poster-mob-2x.jpg 480w, ./images/team-card-1-tab-2x.jpg 528w, ./images/poster-desk-2x.jpg 750w" sizes="(min-width: 1280px) 375px, (min-width: 768px) 264px, (min-width: 320px) 240px, 100vw" src="./images/poster-mob-1x.jpg" alt="poster a fistiful of lead" class="modal__image">       --}}
-  </div>
-  <div class="modal__descr">
-    <h2 class="modal__descr-title">{{title}}</h2>
-    <ul class="modal__descr-list">
-      <li class="modal__descr-list-item">
-        <p class="modal__descr-list-text--accented">
-          <span class="modal__descr-list-key">Vote / Votes</span>
-          <span class="modal__descr-list-value-block--accented">
-            <span class="modal__descr-list-value--accented">{{vote_average}}</span>
-          </span>
-          <span class="modal__descr-list-value-separator">/</span>
-          <span class="modal__descr-list-value-block--unaccented">
-            <span class="modal__descr-list-value--unaccented">{{vote_count}}</span>
-          </span>
+<div class="modal__thumb">
+  <img 
+  {{#if poster_path}}
+  src="https://image.tmdb.org/t/p/w500{{poster_path}}"
+  {{else}}
+  src="http://localhost:1234/placeholder.0e013f78.png?1658232065017"
+  {{/if}}
+      alt='{{title}}'
+      data-src='{{id}}' class="modal__image">
+  {{!-- <img srcset="./images/poster-mob-1x.jpg 240w, ./images/poster-tab-1x.jpg 264w, ./images/poster-desk-1x.jpg 375w, ./images/poster-mob-2x.jpg 480w, ./images/team-card-1-tab-2x.jpg 528w, ./images/poster-desk-2x.jpg 750w" sizes="(min-width: 1280px) 375px, (min-width: 768px) 264px, (min-width: 320px) 240px, 100vw" src="./images/poster-mob-1x.jpg" alt="poster a fistiful of lead" class="modal__image">       --}}
+</div>
+<div class="modal__descr">
+  <h2 class="modal__descr-title">{{title}}</h2>
+  <ul class="modal__descr-list">
+    <li class="modal__descr-list-item">
+      <p class="modal__descr-list-text--accented">
+        <span class="modal__descr-list-key">Vote / Votes</span>
+        <span class="modal__descr-list-value-block--accented">
+          <span class="modal__descr-list-value--accented">{{vote_average}}</span>
+        </span>
+        <span class="modal__descr-list-value-separator">/</span>
+        <span class="modal__descr-list-value-block--unaccented">
+          <span class="modal__descr-list-value--unaccented">{{vote_count}}</span>
+        </span>
 
         </p>
       </li>

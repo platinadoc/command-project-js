@@ -10,20 +10,20 @@
 
     </div>
     <div class='about__film'>
-      <h2 class='hero__title'>{{title}}</h2>
+      <h2 class='hero__title' data-hero ='{{id}}'> {{title}}</h2>
       <div class='hero__description'>
-        <ul class='hero__description--list'>
+        <ul class='hero__description--list' data-list ='{{id}}'>
           <li class='hero__description--Item'>
            
-              <span class='hero__genres'>{{genre_ids}}</span>
+              <span class='hero__genres' data-genres ='{{id}}'>{{genre_ids}}</span>
               
               {{!-- <span class='symbol'>,</span> --}}
               
           </li>
           <li class='hero__description--Item'>
-            <p class='hero__date'> &#8739 {{release_date}}</p>
+            <p class='hero__date' data-release ='{{id}}'>{{release_date}}</p>
             <span
-                class='parameter__value parameter__position'
+                class='parameter__value parameter__position' data-vote ='{{id}}'
               >{{vote_average}}</span>
           </li>
         </ul>
