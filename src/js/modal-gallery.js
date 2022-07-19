@@ -1,6 +1,6 @@
 import createModal from "../templates/modal-gallery.hbs";
-import axios from "axios";
-// import { TheMovieDBApi } from './fetchfilm';
+// import axios from "axios";
+import { TheMovieDBApi } from './fetchfilm';
 
 
 const openModalEl = document.querySelector('.js-home-page');
@@ -12,33 +12,33 @@ const modalEl = document.querySelector('.modal__body');
 const outsideModalEl = document.querySelector(".backdrop");
 const body = document.querySelector("body");
 
-let movie_id = null;
+// let movie_id = null;
 
-class TheMovieDBApi {
-    #BASE_URL = 'https://api.themoviedb.org/3';
-    #API_KEY = 'df75de766bc216630e148042dff14934';
-    constructor() {
-        this.movie_id = null;
-    }
+// class TheMovieDBApi {
+//     #BASE_URL = 'https://api.themoviedb.org/3';
+//     #API_KEY = 'df75de766bc216630e148042dff14934';
+//     constructor() {
+//         this.movie_id = null;
+//     }
     
-    async fetchFilmsById(movie_id) {
-        const searchParams = new URLSearchParams({
-            api_key: this.#API_KEY,
-            language: 'en-US',
-        });
-        try {
-            const response = await axios.get(
-                `${this.#BASE_URL}/movie/${movie_id}?${searchParams}`
-            );
+//     async fetchFilmsById(movie_id) {
+//         const searchParams = new URLSearchParams({
+//             api_key: this.#API_KEY,
+//             language: 'en-US',
+//         });
+//         try {
+//             const response = await axios.get(
+//                 `${this.#BASE_URL}/movie/${movie_id}?${searchParams}`
+//             );
 
-            // console.log(response.data);
+//             // console.log(response.data);
 
-            return response.data;
-        } catch (error) {
-            console.log(error);
-        }
-    }
-}
+//             return response.data;
+//         } catch (error) {
+//             console.log(error);
+//         }
+//     }
+// }
 
 // const api = new TheMovieDBApi();
 
@@ -56,11 +56,13 @@ function onOpenModalClick(e) {
     body.addEventListener('keydown', onEscapeBtnClick);
     outsideModalEl.addEventListener('click', onOutsideModalClick);
 
-
-
-    movie_id = Number(e.target.dataset.src);
-
-    // console.dir(movie_id);
+    if (e.target.dataset.id) {
+        movie_id = Number(e.target.dataset.id)
+    } else if (e.target.dataset.src) {
+        movie_id = Number(e.target.dataset.src);
+    } else {
+        return;
+    }
 
     renderModalCard(movie_id);
 
@@ -106,7 +108,7 @@ async function renderModalCard(movie_id) {
 
     const api = new TheMovieDBApi(movie_id);
     
-    const response = await api.fetchFilmsById(movie_id);
+    const response = await api.fetchFilmById(movie_id);
 
     // console.log(response);
     
