@@ -1,7 +1,4 @@
 import createModal from "../templates/modal-gallery.hbs";
-import axios from "axios";
-// import { TheMovieDBApi } from './fetchfilm';
-
 
 const openModalEl = document.querySelector('.js-home-page');
 
@@ -12,70 +9,26 @@ const modalEl = document.querySelector('.modal__body');
 const outsideModalEl = document.querySelector(".backdrop");
 const body = document.querySelector("body");
 
-let movie_id = null;
-
-class TheMovieDBApi {
-    #BASE_URL = 'https://api.themoviedb.org/3';
-    #API_KEY = 'df75de766bc216630e148042dff14934';
-    constructor() {
-        this.movie_id = null;
-    }
-    
-    async fetchFilmsById(movie_id) {
-        const searchParams = new URLSearchParams({
-            api_key: this.#API_KEY,
-            language: 'en-US',
-        });
-        try {
-            const response = await axios.get(
-                `${this.#BASE_URL}/movie/${movie_id}?${searchParams}`
-            );
-
-            // console.log(response.data);
-
-            return response.data;
-        } catch (error) {
-            console.log(error);
-        }
-    }
-}
-
-// const api = new TheMovieDBApi();
-
-// modalEl.innerHTML = createModal();
-
 openModalEl.addEventListener('click', onOpenModalClick);
 
 function onOpenModalClick(e) {
     if (e.target === e.currentTarget) return;
 
+    const data = { id: e.target.dataset.src };
+    modalEl.innerHTML = createModal(data);
+    
     modalBackdropEl.classList.remove("is-hidden");
-    body.classList.add("no-scroll");
+    // body.classList.add("no-scroll");
 
     closeModalBtnEl.addEventListener('click', onCloseModalClick);
     body.addEventListener('keydown', onEscapeBtnClick);
     outsideModalEl.addEventListener('click', onOutsideModalClick);
 
+    const addToWatchedBtnEl = document.querySelector('.js-addToWatched');
+    addToWatchedBtnEl.addEventListener('click', addWatchedMovie);
 
-
-    movie_id = Number(e.target.dataset.src);
-
-    // console.dir(movie_id);
-
-    renderModalCard(movie_id);
-
-    // const cardObj = api.fetchFilmsById(movie_id);
-    
-    // modalEl.innerHTML = createModal(cardObj.data.results);
-    
-    // cardObj.then(data => console.log(data));
-    // cardObj.then(data => console.log(data.poster_path));
-    // cardObj.then(data => console.log(data.title.));
-    // cardObj.then(data => console.log(data.vote_average));
-    // cardObj.then(data => console.log(data.vote_count));
-    // cardObj.then(data => console.log(data.popularity.toFixed(1)));
-    // cardObj.then(data => console.log(data.original_title.));
-    // cardObj.then(data => console.log(data.genres.map(el => el.name).join(', ')));
+    const addToQueueBtnEl = document.querySelector('.js-addToQueue');
+    addToQueueBtnEl.addEventListener('click', addQueueMovie);
 
 }
 
@@ -102,13 +55,27 @@ function onOutsideModalClick(e) {
     onCloseModalClick();
 }
 
-async function renderModalCard(movie_id) {
+function addWatchedMovie(e) {
+    const movieId = e.target.dataset.id;
+    const watchedList = JSON.parse(localStorage.getItem("watched")) || [];
+    const idx = watchedList.indexOf(movieId);
+    if (idx === -1) {
+        watchedList.push(movieId);
+    } else {
+        watchedList.splice(idx, 1);
+    }
+    localStorage.setItem("watched", JSON.stringify(watchedList));
+}
 
-    const api = new TheMovieDBApi(movie_id);
-    
-    const response = await api.fetchFilmsById(movie_id);
 
-    // console.log(response);
-    
-    modalEl.innerHTML = createModal(response);
+function addQueueMovie(e) {
+    const movieId = e.target.dataset.id;
+    const queueList = JSON.parse(localStorage.getItem("queue")) || [];
+    const idx = queueList.indexOf(movieId);
+    if (idx === -1) {
+        queueList.push(movieId);
+    } else {
+        queueList.splice(idx, 1);
+    }
+    localStorage.setItem("queue", JSON.stringify(queueList));
 }
