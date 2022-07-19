@@ -1,5 +1,3 @@
-import { renderFilmCard, renderLibraryFilmCard } from './renderText';
-
 const headerEl = document.querySelector('.header');
 const homeBtnEl = headerEl.querySelector('.js-home');
 const libraryBtnEl = headerEl.querySelector('.js-library');
