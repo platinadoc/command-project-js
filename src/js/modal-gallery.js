@@ -9,19 +9,27 @@ const modalEl = document.querySelector('.modal__body');
 const outsideModalEl = document.querySelector(".backdrop");
 const body = document.querySelector("body");
 
-modalEl.innerHTML = createModal();
-
 openModalEl.addEventListener('click', onOpenModalClick);
 
 function onOpenModalClick(e) {
     if (e.target === e.currentTarget) return;
-  
+
+    const data = { id: e.target.dataset.src };
+    modalEl.innerHTML = createModal(data);
+    
     modalBackdropEl.classList.remove("is-hidden");
     // body.classList.add("no-scroll");
 
     closeModalBtnEl.addEventListener('click', onCloseModalClick);
     body.addEventListener('keydown', onEscapeBtnClick);
     outsideModalEl.addEventListener('click', onOutsideModalClick);
+
+    const addToWatchedBtnEl = document.querySelector('.js-addToWatched');
+    addToWatchedBtnEl.addEventListener('click', addWatchedMovie);
+
+    const addToQueueBtnEl = document.querySelector('.js-addToQueue');
+    addToQueueBtnEl.addEventListener('click', addQueueMovie);
+
 }
 
 function onCloseModalClick() {
@@ -31,6 +39,8 @@ function onCloseModalClick() {
     closeModalBtnEl.removeEventListener('click', onCloseModalClick);
     body.removeEventListener('keydown', onEscapeBtnClick);
     outsideModalEl.removeEventListener('click', onOutsideModalClick);
+
+    modalEl.innerHTML = '';
 }
 
 function onEscapeBtnClick(e) {
@@ -44,5 +54,28 @@ function onOutsideModalClick(e) {
   
     onCloseModalClick();
 }
- 
 
+function addWatchedMovie(e) {
+    const movieId = e.target.dataset.id;
+    const watchedList = JSON.parse(localStorage.getItem("watched")) || [];
+    const idx = watchedList.indexOf(movieId);
+    if (idx === -1) {
+        watchedList.push(movieId);
+    } else {
+        watchedList.splice(idx, 1);
+    }
+    localStorage.setItem("watched", JSON.stringify(watchedList));
+}
+
+
+function addQueueMovie(e) {
+    const movieId = e.target.dataset.id;
+    const queueList = JSON.parse(localStorage.getItem("queue")) || [];
+    const idx = queueList.indexOf(movieId);
+    if (idx === -1) {
+        queueList.push(movieId);
+    } else {
+        queueList.splice(idx, 1);
+    }
+    localStorage.setItem("queue", JSON.stringify(queueList));
+}
