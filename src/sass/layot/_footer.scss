@@ -40,10 +40,22 @@
   font-style: normal;
   margin-left: 6px;
   border: none;  
-  color: var(--footerTextColor); 
+  text-decoration: underline;
+ 
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;  
+  color: var(--footerTextColor);
+  
+  
+  
   
   &:hover,
   &:focus {   
+    box-shadow: 0 4px 21px 0 rgb(255 107 8 / 59%);
     color: var(--accent-color);
     transition:  250ms cubic-bezier(0.4, 0, 0.2, 1);
    
@@ -52,6 +64,8 @@
 
 .footer__wrap {
   background-color:  var(--footer-BG-Color);
+  padding-top: 29px;
+  padding-bottom: 29px;
   @include mq(tab) {    
     display: flex;
     align-items: baseline;
@@ -59,10 +73,6 @@
     
     font-size: 16px;
     line-height: 1.19;
-  }
+  } 
   
-  @include mq(desk) {
-    padding-top: 29px;
-    padding-bottom: 29px;
-  }
 }
