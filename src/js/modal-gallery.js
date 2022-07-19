@@ -31,7 +31,7 @@ class TheMovieDBApi {
                 `${this.#BASE_URL}/movie/${movie_id}?${searchParams}`
             );
 
-            console.log(response.data);
+            // console.log(response.data);
 
             return response.data;
         } catch (error) {
@@ -60,22 +60,21 @@ function onOpenModalClick(e) {
 
     movie_id = Number(e.target.dataset.src);
 
-    console.dir(movie_id);
+    // console.dir(movie_id);
 
     renderModalCard(movie_id);
 
     // const cardObj = api.fetchFilmsById(movie_id);
-    //     // .then(data => data);
     
     // modalEl.innerHTML = createModal(cardObj.data.results);
     
     // cardObj.then(data => console.log(data));
     // cardObj.then(data => console.log(data.poster_path));
-    // cardObj.then(data => console.log(data.title.toUpperCase()));
+    // cardObj.then(data => console.log(data.title.));
     // cardObj.then(data => console.log(data.vote_average));
     // cardObj.then(data => console.log(data.vote_count));
     // cardObj.then(data => console.log(data.popularity.toFixed(1)));
-    // cardObj.then(data => console.log(data.original_title.toUpperCase()));
+    // cardObj.then(data => console.log(data.original_title.));
     // cardObj.then(data => console.log(data.genres.map(el => el.name).join(', ')));
 
 }
@@ -87,6 +86,8 @@ function onCloseModalClick() {
     closeModalBtnEl.removeEventListener('click', onCloseModalClick);
     body.removeEventListener('keydown', onEscapeBtnClick);
     outsideModalEl.removeEventListener('click', onOutsideModalClick);
+
+    modalEl.innerHTML = '';
 }
 
 function onEscapeBtnClick(e) {
@@ -107,5 +108,7 @@ async function renderModalCard(movie_id) {
     
     const response = await api.fetchFilmsById(movie_id);
 
-    modalEl.innerHTML = createModal(response);;
+    // console.log(response);
+    
+    modalEl.innerHTML = createModal(response);
 }
