@@ -1,3 +1,5 @@
+import activateLibraryView from "./MyLibraryView";
+
 const headerEl = document.querySelector('.header');
 const homeBtnEl = headerEl.querySelector('.js-home');
 const libraryBtnEl = headerEl.querySelector('.js-library');
@@ -38,4 +40,6 @@ function onLibraryBtnClick() {
   inputEl.classList.add('js-is-hidden');
   btnHome.classList.add('home');
   btnLibrary.classList.remove('library');
+
+  activateLibraryView();
 }

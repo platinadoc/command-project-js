@@ -30,18 +30,13 @@ button {
 // MODAL
 
 .modal {
-  position: relative;
-  // top: 50%;
+  position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 
-
-  top: 20px;
   // right: 20px;
-  bottom: 20px;
   // left: 20px;
-
-  // overflow-y: scroll;
 
   width: 280px;
   // height: 940px;
@@ -59,11 +54,6 @@ button {
     // top: 219px;
     // right: 32px;
     // left: 32px;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
 
     width: 704px;
     // height: 552px;
@@ -84,19 +74,18 @@ button {
   }
 }
 
-
-// BUTTON CLOSE
+.modal.is-unclickable {
+      pointer-events: none;
+}
 
 .modal__btn {
     position: absolute;
     top: 8px;
     right: 8px;
-  
+
     @include centeredFlex;
- 
     width: 30px;
     height: 30px;
-    padding: 0;
     margin-left: auto;
 
     background: var(--secondaryTextColor);
@@ -105,13 +94,13 @@ button {
 }
 
 .modal__icon {
-    position: relative;
+    position:relative;
     top: 50%;
     right: 50%;
+    transform: translate(50%, -50%);
 
-    transform: translate(100%, -50%);
-    width: 14px;    
-    height: 14px;
+    width: 20px;    
+    height: 20px;
 
     fill: var(--primaryTextColor);
 
@@ -124,15 +113,11 @@ button {
 }
 
 
-
 .modal__body {
   @include mq(tab) {
     @include centeredFlex;
   }
 }
-
-
-// POSTER
 
 .modal__thumb {
   width: 240px;
@@ -160,11 +145,8 @@ button {
   display: block;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  // overflow: hidden;
 }
-
-
-// INFO BLOCK
 
 .modal__descr {
   color: var(--primaryTextColor);
@@ -184,8 +166,6 @@ button {
     }
 }
 
-// LIST
-
 .modal__descr-list {
     margin-bottom: 20px;
     list-style: none;
@@ -199,11 +179,6 @@ button {
   &:not(:last-child) {
     margin-bottom: 8px;
   }
-}
-
-.modal__descr-list-text {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .modal__descr-list-text--accented {
@@ -226,21 +201,9 @@ button {
 }
 
 .modal__descr-list-value {
-  display: inline-block;
-  // vertical-align: middle;
-  width: 132px;
-
   font-size: 12px;
   line-height: 1.17;
   color: var(--primaryTextColor);
-
-  @include mq (tab) {
-    width: 192px;
-  }
-
-  @include mq(desk) {
-    width: 239px;
-  }
 }
 
 .modal__descr-list-value-block--accented {
@@ -256,7 +219,6 @@ button {
 
 .modal__descr-list-value--accented {
   @extend .modal__descr-list-value;
-  text-align: center;
   color: var(--secondaryTextColor);
 }
 
@@ -267,7 +229,6 @@ button {
 
 .modal__descr-list-value-block--unaccented {
   @extend .modal__descr-list-value-block--accented;
-  text-align: center;
   background-color: var(--footer-BG-Color);
 }
 
@@ -282,21 +243,6 @@ button {
   text-transform: uppercase;
 }
 
-.modal__descr-list-value--listed {
-
-  @extend .modal__descr-list-value;
-  
-  width: fit-content;
-
-  &:not(:last-child)::after {
-  content: ', ';
-  margin-right: 5px;
-  }
-}
-
-
-// TEXT
-
 .modal__descr-subtitle {
   margin-bottom: 8px;
 
@@ -307,30 +253,16 @@ button {
 }
 
 .modal__descr-text {
-  margin-right: 0;
   margin-bottom: 20px;
-  padding-right: 0;
-
 
   font-size: 12px;
   line-height: 1.67;
-
-  @include mq(tab) {
-    width: 300px;
-  }
-  
-
-  @include mq(desk) {
-    width: 391px;
-  }
 }
-
-
-// BUTTON BLOCK
 
 .modal__button-block {
   @include centeredFlex;
   padding-left: 0;
+  padding-bottom: 40px;
 
   @include mq(desk) {
     padding-left: 8px;
@@ -366,9 +298,9 @@ button {
 
   &:not(:last-child) {
   margin-right: 20px;
-  
-    @include mq(desk) {
-      margin-right: 15px;
-    }
   }
+
+  @include mq(desk) {
+    margin-right: 15px;
+  }  
 }
