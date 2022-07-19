@@ -16,12 +16,15 @@
           <li class='hero__description--Item'>
            
               <span class='hero__genres' data-genres ='{{id}}'>{{genre_ids}}</span>
+            {{!-- {{#each genre}}
+              <span class="hero__genres" data-genres ='{{id}}'>{{genre_ids}}</span>
+            {{/each}} --}}
               
               {{!-- <span class='symbol'>,</span> --}}
               
           </li>
           <li class='hero__description--Item'>
-            <p class='hero__date' data-release ='{{id}}'>{{release_date}}</p>
+            <p class='hero__date' data-release ='{{id}}'> | {{release_date}}</p>
             <span
                 class='parameter__value parameter__position' data-vote ='{{id}}'
               >{{vote_average}}</span>
@@ -31,3 +34,5 @@
     </div>
   </li>
 {{/each}}
+
+

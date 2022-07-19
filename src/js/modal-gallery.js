@@ -15,7 +15,7 @@ function onOpenModalClick(e) {
     if (e.target === e.currentTarget) return;
     
     const data = { id: e.target.dataset.src };
-    // modalEl.innerHTML = createModal(data);
+    modalEl.innerHTML = createModal(data);
 
     modalBackdropEl.classList.remove("visually__hidden");
     body.classList.add("no-scroll");
