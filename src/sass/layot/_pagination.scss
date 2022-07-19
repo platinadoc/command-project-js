@@ -3,7 +3,7 @@ button {
     border: none;
     padding: 5px 12px;
     cursor: pointer;
-    
+
 }
 
 
@@ -12,26 +12,33 @@ button {
 }
 
 .tui-pagination {
-    padding-top: 60px;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
+    padding-top: 40px; 
+    padding-right: 20px;
+    padding-left: 20px;
     
+    @include mq(desk) {
+        padding-top: 60px;
+       
+    }
 }
 
-.page-btn {    
+.page-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    padding: 10px; 
-    $base-font: Roboto, sans-serif;
+    padding: 10px;
+    $base-font: Roboto,
+    sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
-    line-height: 1.33;   
-    cursor: pointer;    
+    line-height: 1.33;
+    cursor: pointer;
     color: var(--primaryTextColor);
 
 
@@ -42,13 +49,13 @@ button {
     height: 40px;
     cursor: pointer;
     color: var(--secondaryTextColor);
-    background: var( --accent-color);
+    background: var(--accent-color);
 }
 
-.move-btn-prev {    
+.move-btn-prev {
     width: 40px;
     height: 40px;
-    background-color:  var(--footer-BG-Color);
+    background-color: var(--footer-BG-Color);
     background-image: url(../images/btn-arrow-left-pagination.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -58,7 +65,7 @@ button {
 .move-btn-next {
     width: 40px;
     height: 40px;
-    background-color:  var(--footer-BG-Color);
+    background-color: var(--footer-BG-Color);
     background-image: url(../images/btn-arrow-right-pagination.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -68,11 +75,14 @@ button {
 .move-btn-first {
     width: 40px;
     height: 40px;
-    background-color:  var(--footer-BG-Color);
+    background-color: var(--footer-BG-Color);
     background-image: url(../images/btn-previous-pagination.svg);
     background-repeat: no-repeat;
     background-position: center;
-    // background-size: contain;
+
+    @include mq(mob) {
+        background-size: contain;
+    }
 
 }
 
@@ -83,5 +93,9 @@ button {
     background-image: url(../images/btn-next-pagination.svg);
     background-repeat: no-repeat;
     background-position: center;
-    // background-size: contain;
+
+    @include mq(mob) {
+        background-size: contain;
+    }
+
 }

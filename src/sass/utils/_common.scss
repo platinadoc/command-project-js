@@ -13,6 +13,11 @@ a {
     text-decoration: none;
 }
 .section{
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    
+    @include mq(desk){   
+        padding-top: 60px;
+        padding-bottom: 60px;
+   } 
 }

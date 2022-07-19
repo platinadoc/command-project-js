@@ -17,13 +17,29 @@ export class TheMovieDBApi {
       query: this.query,
       page:this.page,
     });
+    console.log(this.query);
     try {
       const response = await axios.get(
-        `${this.#BASE_URL}/search/movie?${searchParams}`
+        `${this.#BASE_URL}/search/movie?${searchParams}&page=${this.page}`
       );
       // this.totalPages = response.data.total_pages;
       return response
       // .data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async fetchFilmById(id) {
+    const params = new URLSearchParams({
+      api_key: this.#API_KEY
+    });
+    try {
+      const response = await axios.get(
+        `${this.#BASE_URL}/movie/${id}?${params}`
+      );
+      // this.totalPages = response.data.total_pages;
+      return response.data;
     } catch (error) {
       console.log(error);
     }
@@ -42,6 +58,7 @@ export class TheMovieDBApi {
       Notiflix.Notify.warning('error');
     }
   }
+  
   async getGenres() {
     try {
       const response = await axios.get(`
