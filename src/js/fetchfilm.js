@@ -17,9 +17,10 @@ export class TheMovieDBApi {
       query: this.query,
       page:this.page,
     });
+    console.log(this.query);
     try {
       const response = await axios.get(
-        `${this.#BASE_URL}/search/movie?${searchParams}`
+        `${this.#BASE_URL}/search/movie?${searchParams}&page=${this.page}`
       );
       // this.totalPages = response.data.total_pages;
       return response
