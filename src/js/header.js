@@ -1,3 +1,5 @@
+import { renderFilmCard, renderLibraryFilmCard } from './renderText';
+
 const headerEl = document.querySelector('.header');
 const homeBtnEl = headerEl.querySelector('.js-home');
 const libraryBtnEl = headerEl.querySelector('.js-library');
@@ -8,6 +10,8 @@ const btnHome = headerEl.querySelector('.navigation__link.js-library');
 const btnLibrary = headerEl.querySelector('.navigation__link.js-home');
 const searchBtn = headerEl.querySelector('.search__icon');
 
+const galleryContainerEl = document.querySelector('.js-main-container-list');
+
 headerEl.classList.add('header1');
 btnLibrary.classList.add('library');
 
@@ -15,6 +19,8 @@ logoEl.addEventListener('click', onLogoBtnClick);
 homeBtnEl.addEventListener('click', onHomeBtnClick);
 libraryBtnEl.addEventListener('click', onLibraryBtnClick);
 searchBtn.addEventListener('click', onSearchBtnClick);
+
+
 
 function onSearchBtnClick() {}
 
@@ -29,6 +35,11 @@ function onHomeBtnClick() {
   inputEl.classList.remove('js-is-hidden');
   btnHome.classList.remove('home');
   btnLibrary.classList.add('library');
+
+  galleryContainerEl.classList.add('js-home-page');
+  galleryContainerEl.classList.remove('js-library-page');
+  
+  renderFilmCard();
 }
 
 function onLibraryBtnClick() {
@@ -38,4 +49,9 @@ function onLibraryBtnClick() {
   inputEl.classList.add('js-is-hidden');
   btnHome.classList.add('home');
   btnLibrary.classList.remove('library');
+
+  galleryContainerEl.classList.add('js-library-page');
+  galleryContainerEl.classList.remove('js-home-page');
+
+  renderLibraryFilmCard();
 }
