@@ -39,6 +39,8 @@ function onCloseModalClick() {
     closeModalBtnEl.removeEventListener('click', onCloseModalClick);
     body.removeEventListener('keydown', onEscapeBtnClick);
     outsideModalEl.removeEventListener('click', onOutsideModalClick);
+
+    modalEl.innerHTML = '';
 }
 
 function onEscapeBtnClick(e) {
