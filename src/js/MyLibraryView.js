@@ -1,4 +1,5 @@
 import filmcard from '../templates/filmcard.hbs';
+import { TheMovieDBApi } from './fetchfilm';
 
 const moviesEl = document.querySelector('.js-home-page');
 const showWatchedBtnEl = document.querySelector('.watched-button');
@@ -7,64 +8,44 @@ const showQueueBtnEl = document.querySelector('.queue-button');
 showWatchedBtnEl.addEventListener('click', onWatchedBtnClick);
 showQueueBtnEl.addEventListener('click', onQueueBtnClick);
 
-// const moviesExample = [
-//   {
-//     adult: false,
-//     backdrop_path: "/9eAn20y26wtB3aet7w9lHjuSgZ3.jpg",
-//     genre_ids: [12, 28, 878],
-//     id: 507086,
-//     media_type: "movie",
-//     original_language: "en",
-//     original_title: "Jurassic World Dominion",
-//     overview: "Four years after Isla Nublar was destroyed, dinosaurs now live—and hunt—alongside humans all over the world. This fragile balance will reshape the future and determine, once and for all, whether human beings are to remain the apex predators on a planet they now share with history’s most fearsome creatures.",
-//     popularity: 6252.796,
-//     poster_path: "/kAVRgw7GgK1CfYEJq8ME6EvRIgU.jpg",
-//     release_date: "2022-06-01",
-//     title: "Jurassic World Dominion",
-//     video: false,
-//     vote_average: 6.876,
-//     vote_count: 1418
-//   },
-//   {
-//     adult: false,
-//     backdrop_path: "/9eAn20y26wtB3aet7w9lHjuSgZ3.jpg",
-//     genre_ids: [12, 28, 878],
-//     id: 507086,
-//     media_type: "movie",
-//     original_language: "en",
-//     original_title: "Jurassic World Dominion",
-//     overview: "Four years after Isla Nublar was destroyed, dinosaurs now live—and hunt—alongside humans all over the world. This fragile balance will reshape the future and determine, once and for all, whether human beings are to remain the apex predators on a planet they now share with history’s most fearsome creatures.",
-//     popularity: 6252.796,
-//     poster_path: "/kAVRgw7GgK1CfYEJq8ME6EvRIgU.jpg",
-//     release_date: "2022-06-01",
-//     title: "Jurassic World Dominion",
-//     video: false,
-//     vote_average: 6.876,
-//     vote_count: 1418
-//   }
-// ]
+const api = new TheMovieDBApi();
 
-// localStorage.setItem('watched', JSON.stringify(moviesExample));
-// localStorage.setItem('queue', JSON.stringify([...moviesExample, ...moviesExample]));
+export default function activateLibraryView() {
+  onWatchedBtnClick();
+}
 
-function onWatchedBtnClick() {
-  const movies = getWatchedMovies();
+async function onWatchedBtnClick() {
+  showWatchedBtnEl.classList.add("button-active");
+  showQueueBtnEl.classList.remove("button-active");
+
+  const movies = await getWatchedMovies();
 
   markUpMovies(movies);
 }
 
-function onQueueBtnClick() {
-  const movies = getQueueMovies();
+async function onQueueBtnClick() {
+  showWatchedBtnEl.classList.remove("button-active");
+  showQueueBtnEl.classList.add("button-active");
+
+  const movies = await getQueueMovies();
 
   markUpMovies(movies);
 }
 
-function getWatchedMovies() {
-  return JSON.parse(localStorage.getItem("watched")) || [];
+async function getWatchedMovies() {
+  var ids = JSON.parse(localStorage.getItem("watched")) || [];
+  var films = await Promise.all(ids.map(async id => {
+    return await api.fetchFilmById(id);
+  }));
+  return films;
 }
 
-function getQueueMovies() {
-  return JSON.parse(localStorage.getItem("queue")) || [];
+async function getQueueMovies() {
+  var ids = JSON.parse(localStorage.getItem("queue")) || [];
+  var films = await Promise.all(ids.map(async id => {
+    return await api.fetchFilmById(id);
+  }));
+  return films;
 }
 
 function myLibraryMarkUp(data, ref) {
@@ -88,4 +69,3 @@ function markUpMovies(movies) {
   }
 }
 
-// export default MyLibrary;

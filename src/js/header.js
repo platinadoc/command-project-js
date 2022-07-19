@@ -1,3 +1,5 @@
+import activateLibraryView from "./MyLibraryView";
+
 const headerEl = document.querySelector('.header');
 const homeBtnEl = headerEl.querySelector('.js-home');
 const libraryBtnEl = headerEl.querySelector('.js-library');
@@ -62,6 +64,7 @@ function onLibraryBtnClick() {
   btnHome.classList.add('home');
   btnLibrary.classList.remove('library');
 
+  activateLibraryView();
 
   galleryContainerEl.classList.add('js-library-page');
   galleryContainerEl.classList.remove('js-home-page');
