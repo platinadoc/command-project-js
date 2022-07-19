@@ -6,14 +6,15 @@
   width: 100%;
   @include mq (mob) {
     height: 398px;
+     margin-bottom: 8px;
   }
   @include mq (tab) {
     height: 455px;
   }
   @include mq (desk) {
   height: 574px;
+  margin-bottom: 12px;
   }
-  margin-bottom: 8px;
 }
 
 .hero__image {
@@ -23,27 +24,10 @@
   border-radius: 5px;
   object-fit: cover;
 }
+
 .parameter__position {
   display: none;
   
-}
-.parameter__position--visible{
-  background-color: var(--accent-color);
-    width: 40px;
-    height: 20px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #fff;
-    border-radius: 5px;
-    align-items: center;
-    margin-right: 0;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1.17;
-    display: flex;
-    bottom: 0;
-    right: 0;
-    justify-content: space-around;
 }
 
 .about__film {
@@ -56,9 +40,10 @@
   color: inherit;
   font-style: $base-font;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 1.34;
+  font-size: 20px;
+  line-height: 1.2;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .hero__description--list {
@@ -66,6 +51,7 @@
   flex-wrap: wrap;
   align-items: baseline;
 }
+
 .hero__description--Item{
   display: flex;
   align-content: stretch;
@@ -74,6 +60,7 @@
   align-items: center;
   flex-wrap: wrap;
 }
+
 .hero__genres,
 .hero__date,
 .symbol {
@@ -83,25 +70,12 @@
   color: var(--accent-color);
   font-style: $base-font;
   font-weight: 500;
-  font-size: 12px;
-  line-height: 1.34;
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 0;
 }
+
 .hero__date {
   margin-left: 7px;
 }
-.hero__date::before {
-  position: relative;
-  right: 3px;
-  bottom: -2px;
-  float: left;
-  content: '';
-  width: 1px;
-  background-color: var(--accent-color);
-  height: 11px;
-}
-.symbol:not(:last-child) {
-  margin-right: 3px;
-}
-.symbol:last-child {
-  display: none;
-}
+

@@ -1,8 +1,10 @@
 import Pagination from 'tui-pagination';
 import { TheMovieDBApi } from './fetchfilm';
 import filmcard from '../templates/filmcard.hbs';
-import axios from 'axios';
+import { spinnedFn } from './spinner';
 import placeholder from '../images/placeholder.png';
+import useSpinner from 'use-spinner';
+import 'use-spinner/assets/use-spinner.css';
 // import { pagination } from './pagination';
 
 export const api = new TheMovieDBApi();
@@ -27,10 +29,17 @@ export const pagination = new Pagination(container, {
 pagination.on('afterMove', event => {
   const currentPage = event.page;
   renderTrendingPerPage(currentPage);
+  
 });
 // const libraryListEl = document.querySelector('.js-gallery-page');
 
 export async function renderFilmCard() {
+  if (!api.genresMap){
+    await api.getGenres();
+  }
+  const fetchWithSpinner = useSpinner(api.fetchTrendingFilms,{container: 'body'});
+  // const response = await fetchWithSpinner();
+  
   const response = await api.fetchTrendingFilms();
   renderFilmsList(response.data.results);
   pagination.reset(response.data.total_results);
@@ -44,25 +53,25 @@ async function renderTrendingPerPage (page) {
 }
 
 async function renderFilmsList (films) {   
-  const genresIds = await api.getGenres();
-  films.map(el => {
+  const genresIds = api.genresMap;
+  const convertedFilms = films.map(el => {
     if (!el.poster_path) {
       el.poster_path = placeholder;
     } else {
       el.poster_path = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
     }
-  });
-  films.map(el => {
     const changedGenders = el.genre_ids.map(el => {
       el = genresIds[el];
       return el;
     });
     el.genre_ids = changedGenders;
-  });
+    return el
+  })
+ 
  
 
   // libraryListEl.innerHTML = '';
-  const filmItemsMarkup = filmcard(films);
+  const filmItemsMarkup = filmcard(convertedFilms);
   mainListEl.innerHTML = filmItemsMarkup;
 }
 
