@@ -10,7 +10,7 @@ const closeModalBtnEl = document.querySelector('[data-modal-close]');
 const modalEl = document.querySelector('.modal__body');
 const outsideModalEl = document.querySelector('.backdrop');
 const body = document.querySelector('body');
-
+let movie_id = null;
 openModalEl.addEventListener('click', onOpenModalClick);
 
 function onOpenModalClick(e) {
