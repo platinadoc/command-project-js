@@ -77,19 +77,13 @@ function setGenresToCard(genre_ids) {
 async function renderFilmList(films) {
   // const filmArray = await responsePerPage.data.results;
 
-  const convertFilms = films.map(el => {
-    if (el.poster_path) {
-      return { ...el, poster_path: `https://image.tmdb.org/t/p/w500${el.poster_path}`, genre_ids: setGenresToCard(el.genre_ids) }
-    } else {
-      return { ...el, poster_path: placeholder, genre_ids: setGenresToCard(el.genre_ids) }
-    }
+  const convertFilms = convertFilms(films)
 
-    return el
-  });
   if (films.length === 0) {
     Notiflix.Notify.warning('Nothing found');
     return;
   }
+  console.log(convertFilms);
   const textFilmRender = filmcard(convertFilms);
   mainListEl.innerHTML = textFilmRender;
 };

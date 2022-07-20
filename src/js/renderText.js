@@ -5,6 +5,7 @@ import { spinnedFn } from './spinner';
 import placeholder from '../images/placeholder.png';
 import useSpinner from 'use-spinner';
 import 'use-spinner/assets/use-spinner.css';
+import { convertFilms } from './convertFilms';
 // import { pagination } from './pagination';
 
 export const api = new TheMovieDBApi();
@@ -29,51 +30,37 @@ export const pagination = new Pagination(container, {
 pagination.on('afterMove', event => {
   const currentPage = event.page;
   renderTrendingPerPage(currentPage);
-  
 });
 // const libraryListEl = document.querySelector('.js-gallery-page');
 
 export async function renderFilmCard() {
-  if (!api.genresMap){
+  if (!api.genresMap) {
     await api.getGenres();
   }
-  const fetchWithSpinner = useSpinner(api.fetchTrendingFilms,{container: 'body'});
-  // const response = await fetchWithSpinner();
-  
+  const fetchWithSpinner = useSpinner(api.fetchTrendingFilms, {
+    container: 'body',
+  });
+
   const response = await api.fetchTrendingFilms();
   renderFilmsList(response.data.results);
   pagination.reset(response.data.total_results);
-  
 }
 
-async function renderTrendingPerPage (page) {  
-  api.page = page;  
+async function renderTrendingPerPage(page) {
+  api.page = page;
   const response = await api.fetchTrendingFilms();
   renderFilmsList(response.data.results);
 }
 
-async function renderFilmsList (films) {   
-  const genresIds = api.genresMap;
-  const convertedFilms = films.map(el => {
-    if (!el.poster_path) {
-      el.poster_path = placeholder;
-    } else {
-      el.poster_path = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
-    }
-    const changedGenders = el.genre_ids.map(el => {
-      el = genresIds[el];
-      return el;
-    });
-    el.genre_ids = changedGenders;
-    return el
-  })
- 
- 
+export async function renderFilmsList(films) {
+
+const convertedFilms = convertFilms(films)
 
   // libraryListEl.innerHTML = '';
   const filmItemsMarkup = filmcard(convertedFilms);
   mainListEl.innerHTML = filmItemsMarkup;
 }
+
 
 // export async function renderLibraryFilmCard() {
 //   const response = await api.fetchTrendingFilms();
@@ -98,6 +85,5 @@ async function renderFilmsList (films) {
 //   const filmItemsMarkup = filmcard(films);
 //   libraryListEl.innerHTML = filmItemsMarkup;
 // }
-
 
 renderFilmCard();

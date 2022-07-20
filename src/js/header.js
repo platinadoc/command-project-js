@@ -1,4 +1,6 @@
 import activateLibraryView from "./MyLibraryView";
+import {renderFilmList, renderFilmCard} from './renderText';
+
 
 const headerEl = document.querySelector('.header');
 const homeBtnEl = headerEl.querySelector('.js-home');
@@ -54,6 +56,9 @@ function onHomeBtnClick() {
   queueBtnEl.classList.remove('accent');
   watchedBtnEl.classList.add('blick');
   queueBtnEl.classList.remove('blick');
+
+  // renderFilmList();
+  renderFilmCard();
 }
 
 function onLibraryBtnClick() {
@@ -66,8 +71,8 @@ function onLibraryBtnClick() {
 
   activateLibraryView();
 
-  galleryContainerEl.classList.add('js-library-page');
-  galleryContainerEl.classList.remove('js-home-page');
+  // galleryContainerEl.classList.add('js-library-page');
+  // galleryContainerEl.classList.remove('js-home-page');
 
   watchedBtnEl.classList.add('accent');
   watchedBtnEl.classList.add('blick');

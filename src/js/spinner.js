@@ -6,5 +6,5 @@ export function starSpinner () {
 
 export function closeSpinner () {
   bodyEl.querySelector('.spinner').remove();
-  console.log(bodyEl.querySelector('.spinner'))
+  // console.log(bodyEl.querySelector('.spinner'))
 }

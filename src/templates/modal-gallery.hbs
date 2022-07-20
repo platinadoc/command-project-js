@@ -1,10 +1,6 @@
 <div class="modal__thumb">
   <img 
-  {{#if poster_path}}
-  src="https://image.tmdb.org/t/p/w500{{poster_path}}"
-  {{else}}
-  src="http://localhost:1234/placeholder.0e013f78.png?1658232065017"
-  {{/if}}
+  src="{{this.poster_path}}"
       alt='{{title}}'
       data-src='{{id}}' class="modal__image">
   {{!-- <img srcset="./images/poster-mob-1x.jpg 240w, ./images/poster-tab-1x.jpg 264w, ./images/poster-desk-1x.jpg 375w, ./images/poster-mob-2x.jpg 480w, ./images/team-card-1-tab-2x.jpg 528w, ./images/poster-desk-2x.jpg 750w" sizes="(min-width: 1280px) 375px, (min-width: 768px) 264px, (min-width: 320px) 240px, 100vw" src="./images/poster-mob-1x.jpg" alt="poster a fistiful of lead" class="modal__image">       --}}

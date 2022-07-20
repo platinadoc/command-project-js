@@ -1,5 +1,6 @@
 import filmcard from '../templates/filmcard.hbs';
 import { TheMovieDBApi } from './fetchfilm';
+import {convertFilmsByLibrary} from './convertFilmsByLibrary';
 
 const moviesEl = document.querySelector('.js-home-page');
 const showWatchedBtnEl = document.querySelector('.watched-button');
@@ -19,8 +20,8 @@ async function onWatchedBtnClick() {
   showQueueBtnEl.classList.remove("button-active");
 
   const movies = await getWatchedMovies();
-
-  markUpMovies(movies);
+  const convertMovies = convertFilmsByLibrary(movies)
+  markUpMovies(convertMovies);
 }
 
 async function onQueueBtnClick() {
@@ -28,35 +29,36 @@ async function onQueueBtnClick() {
   showQueueBtnEl.classList.add("button-active");
 
   const movies = await getQueueMovies();
-
-  markUpMovies(movies);
+  const convertMovies = convertFilmsByLibrary(movies)
+  markUpMovies(convertMovies);
 }
 
 async function getWatchedMovies() {
-  var ids = JSON.parse(localStorage.getItem("watched")) || [];
-  var films = await Promise.all(ids.map(async id => {
+  const ids = JSON.parse(localStorage.getItem("watched")) || [];
+  const films = await Promise.all(ids.map(async id => {
     return await api.fetchFilmById(id);
   }));
   return films;
 }
 
 async function getQueueMovies() {
-  var ids = JSON.parse(localStorage.getItem("queue")) || [];
-  var films = await Promise.all(ids.map(async id => {
+  const ids = JSON.parse(localStorage.getItem("queue")) || [];
+  const films = await Promise.all(ids.map(async id => {
     return await api.fetchFilmById(id);
   }));
   return films;
 }
 
 function myLibraryMarkUp(data, ref) {
-  ref.innerHTML = '';
+  // ref.innerHTML = '';
 
   const markUp = filmcard(data);
-  ref.insertAdjacentHTML("beforeend", markUp);
+  // ref.insertAdjacentHTML("beforeend", markUp);
+  moviesEl.innerHTML = markUp;
 }
 
 function emptyListMarkUp(ref) {
-  ref.innerHTML = '<div>THIS LIST IS EMPTY</div>';
+  moviesEl.innerHTML = '<div>THIS LIST IS EMPTY</div>';
 };
 
 function markUpMovies(movies) {
