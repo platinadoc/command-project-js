@@ -1,0 +1,23 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+* {
+    color: black;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+ul li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.section{
+    padding-top: 20px;
+    padding-bottom: 40px;
+    
+    @include mq(desk){   
+        padding-top: 60px;
+        padding-bottom: 60px;
+   } 
+}

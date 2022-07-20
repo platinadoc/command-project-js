@@ -1,0 +1,17 @@
+:root {
+    --accent-color: #FF6B08;
+    --primaryTextColor: #000000;
+    --secondaryTextColor: #ffffff; 
+    --threeTextColor: #FF001B; 
+    --footerTextColor: #545454;
+    --footer-BG-Color: #F7F7F7;
+    --modalTextColor: #8C8C8C;
+    --backdropColor: rgba(0, 0, 0, 0.25);
+
+    --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --modal-window: 500ms linear;
+    
+}
+
+$base-font: Roboto, sans-serif;
+

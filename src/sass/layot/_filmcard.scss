@@ -1,0 +1,94 @@
+.hero__item {
+  cursor: pointer;
+}
+
+.hero__box {
+  width: 100%;
+  @include mq (mob) {
+    height: 398px;
+     margin-bottom: 8px;
+  }
+  @include mq (tab) {
+    height: 455px;
+  }
+  @include mq (desk) {
+  height: 574px;
+  margin-bottom: 12px;
+  }
+}
+
+.hero__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.parameter__position {
+  display: none;
+  
+}
+
+.about__film {
+  height: 32px;
+}
+
+.hero__title {
+  margin-bottom: auto;
+
+  color: inherit;
+  font-style: $base-font;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  margin: 0;
+
+  @include mq(desk) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.hero__description--list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.hero__description--Item{
+  display: flex;
+  align-content: stretch;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hero__genres,
+.hero__date,
+.symbol {
+
+  margin-bottom: 0;
+
+  color: var(--accent-color);
+  font-style: $base-font;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  margin: 0;
+
+  @include mq(desk) {
+    font-size: 20px;
+    line-height: 1.2;
+
+  }
+
+
+}
+
+.hero__date {
+  margin-left: 7px;
+}
+
