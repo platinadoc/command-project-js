@@ -5,17 +5,27 @@ import placeholder from '../images/placeholder.png';
 // import {fetchPerPage} from './pagination';
 import { api } from './renderText';
 import Pagination from 'tui-pagination';
-
+import { convertFilms } from './convertFilms';
 
 const formEl = document.querySelector('.search__form');
 const inputEl = document.querySelector('.js-inputSearch');
 const mainListEl = document.querySelector('.js-home-page');
+const newApi = new TheMovieDBApi();
 
-let inputValue = ""
-inputEl.addEventListener("input", (event) => {
+// async function onInputChange() {
+//   newApi.setQuery(inputEl.value);
+//   const searchFilms = await newApi.fetchFilms();
+//   const filmArray = searchFilms.data.results;
+//   const FilmLi = filmcard(filmArray);
+//   mainListEl.innerHTML = FilmLi;
+// }
+
+// inputEl.addEventListener('input', onInputChange);
+
+let inputValue = '';
+inputEl.addEventListener('input', event => {
   inputValue = event.target.value;
-  console.log(event.target.value);
-})
+});
 
 const container = document.getElementById('tui-pagination-container');
 const pagination = new Pagination(container, {
@@ -48,11 +58,10 @@ export async function fetchPerPage(page) {
   const response = await api.fetchFilms();
   renderFilmList(response.data.results);
 
-  // onInputChange();  
+  // onInputChange();
   if (page === 1) pagination.reset(response.data.total_results);
-  return response
+  return response;
 }
-
 
 const onInputChange = async evt => {
   evt.preventDefault();
@@ -60,11 +69,10 @@ const onInputChange = async evt => {
     return;
   }
   api.setQuery(inputValue);
+
   const responsePerPage = await fetchPerPage(1);
   renderFilmList(responsePerPage.data.results);
-
-
-}
+};
 function setGenresToCard(genre_ids) {
   const genresIds = api.genresMap;
   const changedGenders = genre_ids.map(el => {
@@ -77,16 +85,14 @@ function setGenresToCard(genre_ids) {
 async function renderFilmList(films) {
   // const filmArray = await responsePerPage.data.results;
 
-  const convertFilms = convertFilms(films)
-
   if (films.length === 0) {
     Notiflix.Notify.warning('Nothing found');
     return;
   }
-  console.log(convertFilms);
-  const textFilmRender = filmcard(convertFilms);
-  mainListEl.innerHTML = textFilmRender;
-};
+  const convertedFilms = convertFilms(films);
+
+  const filmItemsMarkup = filmcard(convertedFilms);
+  mainListEl.innerHTML = filmItemsMarkup;
+}
 
 formEl.addEventListener('submit', onInputChange);
-
