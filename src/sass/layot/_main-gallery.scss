@@ -11,99 +11,26 @@
     @include mq(mob) {
         display: grid; 
         grid-auto-columns: 1fr; 
-        grid-template-columns: 280px; 
-        grid-template-rows: 440px 440px 440px 440px 440px 440px 440px 440px 440px 440px 440px 440px 440px 440px 440px 440px 440px 440px 440px 440px; 
+        grid-template-columns: 1fr; 
+        grid-template-rows: 1fr 1fr; 
+        // grid-template-columns: 280px; 
+        // grid-template-rows: 440px 440px; 
         gap: 20px 0; 
-        // grid-template-areas: 
-            // "."
-            // "."
-            // "."
-            // "."
-            // "."
-            // "."
-            // "."
-            // "."
-            // "."
-            // "."
-            // "."
-            // "."
-            // "."
-            // "."
-            // "."
-            // "."
-            // "."
-            // "."
-            // "."
-            // ".";
     }
 
     @include mq(tab) {
-        grid-template-columns: 336px 336px;
-        grid-template-rows: 495px 495px 495px 495px 495px 495px 495px 495px 495px 495px;
+        // grid-template-columns: 336px 336px;
+        // grid-template-rows: 495px 495px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
         gap: 32px 32px;
-        // grid-template-areas:
-        //     ". ."
-        //     ". ."
-        //     ". ."
-        //     ". ."
-        //     ". ."
-        //     ". ."
-        //     ". ."
-        //     ". ."
-        //     ". ."
-        //     ". .";
     }
 
     @include mq(desk) {
+        // grid-template-columns: 395px 395px 395px;
+        // grid-template-rows: 634px;
         grid-template-columns: 395px 395px 395px;
-        grid-template-rows: 634px 634px 634px 634px 634px 634px 634px;
+        grid-template-rows: 1fr;
         gap: 32px 16px;
-        // grid-template-areas:
-        //     ". . ."
-        //     ". . ."
-        //     ". . ."
-        //     ". . ."
-        //     ". . ."
-        //     ". . ."
-        //     ". . .";
-    }
-}
-
-.js-library-page {
-    display: grid;
-    justify-content: center;
-
-    @include mq(mob) {
-        display: grid;
-        grid-auto-columns: 1fr;
-        grid-template-columns: 280px;
-        grid-template-rows: 438px 438px 438px 438px;
-        gap: 20px 0;
-        grid-template-areas:
-            "."
-            "."
-            "."
-            ".";
-    }
-
-    @include mq(tab) {
-        grid-template-columns: 336px 336px; 
-        grid-template-rows: 495px 495px 495px 495px; 
-        gap: 32px 32px; 
-        grid-template-areas: 
-            ". ."
-            ". ."
-            ". ."
-            ". .";
-    }
-
-    @include mq(desk) {
-        grid-template-columns: 395px 395px 395px;
-        grid-template-rows: 634px 634px 634px;
-        gap: 32px 16px;
-        grid-template-areas:
-            ". . ."
-            ". . ."
-            ". . .";
     }
 }

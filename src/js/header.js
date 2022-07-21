@@ -1,5 +1,5 @@
 import activateLibraryView from './MyLibraryView';
-import { renderFilmList, renderFilmCard } from './renderText';
+import { renderFilmCard } from './renderText';
 
 const headerEl = document.querySelector('.header');
 const homeBtnEl = headerEl.querySelector('.js-home');
@@ -12,6 +12,7 @@ const btnLibrary = headerEl.querySelector('.navigation__link.js-home');
 const searchBtn = headerEl.querySelector('.search__icon');
 const watchedBtnEl = headerEl.querySelector('.watched-button');
 const queueBtnEl = headerEl.querySelector('.queue-button');
+const parameterValueEl = document.querySelector('.parameter__value');
 
 export const galleryContainerEl = document.querySelector(
   '.js-main-container-list'
@@ -48,15 +49,12 @@ function onHomeBtnClick() {
   btnHome.classList.remove('home');
   btnLibrary.classList.add('library');
 
-  galleryContainerEl.classList.add('js-home-page');
-  galleryContainerEl.classList.remove('js-library-page');
-
   watchedBtnEl.classList.add('accent');
   queueBtnEl.classList.remove('accent');
   watchedBtnEl.classList.add('blick');
   queueBtnEl.classList.remove('blick');
+  parameterValueEl.classList.add('visually__hidden');
 
-  // renderFilmList();
   renderFilmCard();
 }
 
@@ -67,11 +65,9 @@ function onLibraryBtnClick() {
   inputEl.classList.add('js-is-hidden');
   btnHome.classList.add('home');
   btnLibrary.classList.remove('library');
+  parameterValueEl.classList.remove('visually__hidden');
 
   activateLibraryView();
-
-  // galleryContainerEl.classList.add('js-library-page');
-  // galleryContainerEl.classList.remove('js-home-page');
 
   watchedBtnEl.classList.add('accent');
   watchedBtnEl.classList.add('blick');
