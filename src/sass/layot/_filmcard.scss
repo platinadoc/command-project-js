@@ -1,5 +1,19 @@
 .hero__item {
   cursor: pointer;
+  @include mq(mob) {
+    width: 280px; 
+    height: 440px; 
+}
+
+@include mq(tab) {
+  width: 336px; 
+  height: 495px;
+}
+
+@include mq(desk) {
+  width: 395px; 
+  height: 634px;
+}
 }
 
 .hero__box {
@@ -25,13 +39,33 @@
   object-fit: cover;
 }
 
-.parameter__position {
-  display: none;
+.parameter_value-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 16px;
+
+  background-color: var(--accent-color);
+  border-radius: 5px;
+  @include mq(desk) {
+  width: 40px;
+  height: 20px;
+  }
+}
+
+.parameter__value {
+  display: inline-block;
   
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.17;
+  color: var(--secondaryTextColor);
 }
 
 .about__film {
-  height: 32px;
+  height: 48px;
+  // overflow: auto;
 }
 
 .hero__title {
@@ -51,25 +85,22 @@
   }
 }
 
-.hero__description--list {
+.hero__description-list {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
 }
 
-.hero__description--Item{
+.hero__description-item{
   display: flex;
   align-content: stretch;
   justify-content: center;
-  flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
 }
 
 .hero__genres,
-.hero__date,
-.symbol {
-
+.hero__release {
   margin-bottom: 0;
 
   color: var(--accent-color);
@@ -78,17 +109,10 @@
   font-size: 12px;
   line-height: 1.33;
   margin: 0;
+  margin-right: 7px;
 
   @include mq(desk) {
     font-size: 20px;
     line-height: 1.2;
-
   }
-
-
 }
-
-.hero__date {
-  margin-left: 7px;
-}
-

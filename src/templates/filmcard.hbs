@@ -3,41 +3,54 @@
     <div class='hero__box average__position'>
       <img
         class='hero__image'
-        src="{{this.poster_path}}" 
+        src='{{this.poster_path}}'
         alt='{{title}}'
         data-src='{{id}}'
       />
 
     </div>
     <div class='about__film'>
-      <h2 class='hero__title' data-hero ='{{id}}'> {{title}}</h2>
-      <div class='hero__description'>
-        <ul class='hero__description--list' data-list ='{{id}}'>
-          <li class='hero__description--Item'>
-           
-              <span class='hero__genres' data-genres ='{{id}}'>
-                {{#each genre_ids}}
+      <h2 class='hero__title' data-hero='{{id}}'> {{title}}</h2>
+      <p class='hero__description-list' data-list='{{id}}'>
+        <span class='hero__genres' data-genres='{{id}}'>
+          {{#each genre_ids}}
+            {{this}}{{#unless @last}}, {{/unless}}
+          {{/each}}
+          |
+        </span>
+        <span class='hero__release' data-genres='{{id}}'>
+          {{release_date}}
+        </span>
+        <span class='parameter_value-block'>
+          <span class='parameter__value' data-vote='{{id}}'>
+            {{vote_average}}
+          </span>
+        </span>
+      </p>
+      {{!-- <div class='hero__description'>
+        <ul class='hero__description-list' data-list='{{id}}'>
+          <li class='hero__description-item'>
+            <span class='hero__genres' data-genres='{{id}}'>
+              {{#each genre_ids}}
                 {{this}}{{#unless @last}}, {{/unless}}
-                {{/each}} | {{release_date}}
-                </span>
-                {{!-- <span class='hero__date' data-release ='{{id}}'> | {{release_date}}</span> --}}
-            {{!-- {{#each genre}}
-              <span class="hero__genres" data-genres ='{{id}}'>{{genre_ids}}</span>
-            {{/each}} --}}
-              
-              {{!-- <span class='symbol'>,</span> --}}
-              
+              {{/each}}
+              |
+            </span>
           </li>
-          <li class='hero__description--Item'>
-            {{!-- <p class='hero__date' data-release ='{{id}}'> | {{release_date}}</p> --}}
-            <span
-                class='parameter__value parameter__position' data-vote ='{{id}}'
-              >{{vote_average}}</span>
+          <li class='hero__description-item'>
+            <span class='hero__release' data-genres='{{id}}'>
+              {{release_date}}
+            </span>
+          </li>
+          <li class='hero__description-item'>
+            <span class='parameter_value-block'>
+              <span
+                class='parameter__value'
+                data-vote='{{id}}'
+              >{{vote_average}}</span></span>
           </li>
         </ul>
-      </div>
+      </div> --}}
     </div>
   </li>
 {{/each}}
-
-
