@@ -1,5 +1,6 @@
 .hero__item {
   cursor: pointer;
+  margin: auto;
 
   @include mq(mob) {
     width: 280px;
