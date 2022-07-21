@@ -27,7 +27,7 @@ i {
     width: $particleSize;
     height: $particleSize;
     border-radius: $particleSize;
-    background: var(--primaryTextColor);
+    background: var(--accent-color);
     box-shadow: 0px 0px 14px rgba(255, 255, 255, 1);
 
     animation-name: spin;
