@@ -1,118 +1,121 @@
 .hero__item {
   cursor: pointer;
+
   @include mq(mob) {
-    width: 280px; 
-    height: 440px; 
-}
+    width: 280px;
+    height: 440px;
+  }
 
-@include mq(tab) {
-  width: 336px; 
-  height: 495px;
-}
+  @include mq(tab) {
+    width: 336px;
+    height: 495px;
+  }
 
-@include mq(desk) {
-  width: 395px; 
-  height: 634px;
-}
+  @include mq(desk) {
+    width: 395px;
+    height: 634px;
+  }
 }
 
 .hero__box {
   width: 100%;
-  @include mq (mob) {
+
+  @include mq(mob) {
     height: 398px;
-     margin-bottom: 8px;
+    margin-bottom: 8px;
   }
-  @include mq (tab) {
+  @include mq(tab) {
     height: 455px;
   }
-  @include mq (desk) {
-  height: 574px;
-  margin-bottom: 12px;
+  @include mq(desk) {
+    height: 574px;
+    margin-bottom: 12px;
   }
 }
 
 .hero__image {
   display: block;
+
   width: 100%;
   height: 100%;
+
   border-radius: 5px;
   object-fit: cover;
 }
 
-.parameter_value-block {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.about__film {
+  height: 50px;
+
+  overflow-y: auto;
+}
+
+.hero__title {
+  margin: 0;
+  margin-bottom: auto;
+
+  font-family: $base-font;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  color: inherit;
+
+  @include mq(desk) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+// .hero__description-list {
+//   display: flex;
+//   flex-wrap: wrap;
+//   align-items: center;
+// }
+
+// .hero__description-item{
+//   display: flex;
+//   align-content: stretch;
+//   justify-content: center;
+//   align-items: center;
+//   flex-wrap: wrap;
+// }
+
+.hero__parameters {
+  margin: 0;
+  margin-right: 7px;
+
+  color: var(--accent-color);
+  font-family: $base-font;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+
+  @include mq(desk) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+.hero__votes-block {
+  display: inline-flex;
+
   width: 36px;
   height: 16px;
 
   background-color: var(--accent-color);
   border-radius: 5px;
+
   @include mq(desk) {
-  width: 40px;
-  height: 20px;
+    width: 40px;
+    height: 20px;
   }
 }
 
-.parameter__value {
+.hero__votes {
   display: inline-block;
-  
-  text-align: center;
+  margin: auto;
+
   font-size: 12px;
   line-height: 1.17;
   color: var(--secondaryTextColor);
-}
-
-.about__film {
-  height: 48px;
-  // overflow: auto;
-}
-
-.hero__title {
-  margin-bottom: auto;
-
-  color: inherit;
-  font-style: $base-font;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
-  text-transform: uppercase;
-  margin: 0;
-
-  @include mq(desk) {
-    font-size: 20px;
-    line-height: 1.2;
-  }
-}
-
-.hero__description-list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.hero__description-item{
-  display: flex;
-  align-content: stretch;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.hero__genres,
-.hero__release {
-  margin-bottom: 0;
-
-  color: var(--accent-color);
-  font-style: $base-font;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33;
-  margin: 0;
-  margin-right: 7px;
-
-  @include mq(desk) {
-    font-size: 20px;
-    line-height: 1.2;
-  }
 }
