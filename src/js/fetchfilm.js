@@ -11,21 +11,20 @@ export class TheMovieDBApi {
     this.totalPages = 0;
     this.totalItems = 0;
     this.genresMap = null;
-
   }
   async fetchFilms() {
     const searchParams = new URLSearchParams({
       api_key: this.#API_KEY,
       query: this.query,
-      page:this.page,
+      page: this.page,
     });
-    console.log(this.query);
+
     try {
       const response = await axios.get(
         `${this.#BASE_URL}/search/movie?${searchParams}&page=${this.page}`
       );
       // this.totalPages = response.data.total_pages;
-      return response
+      return response;
       // .data;
     } catch (error) {
       console.log(error);
@@ -49,21 +48,24 @@ export class TheMovieDBApi {
   }
 
   async fetchTrendingFilms() {
-    starSpinner()
+    starSpinner();
     try {
       const response = await axios.get(
-        `${this.#BASE_URL}/trending/movie/day?api_key=${this.#API_KEY}&page=${this.page}`
+        `${this.#BASE_URL}/trending/movie/day?api_key=${this.#API_KEY}&page=${
+          this.page
+        }`
       );
       // this.totalPages = response.data.total_pages;
       // this.totalItems = response.data.total_results;
-       return response;
+      return response;
     } catch (error) {
       console.log(error);
       Notiflix.Notify.warning('error');
+    } finally {
+      closeSpinner();
     }
-    finally {closeSpinner()};
   }
-  
+
   async getGenres() {
     try {
       const response = await axios.get(`

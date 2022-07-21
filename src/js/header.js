@@ -1,6 +1,5 @@
-import activateLibraryView from "./MyLibraryView";
-import {renderFilmList, renderFilmCard} from './renderText';
-
+import activateLibraryView from './MyLibraryView';
+import { renderFilmList, renderFilmCard } from './renderText';
 
 const headerEl = document.querySelector('.header');
 const homeBtnEl = headerEl.querySelector('.js-home');
@@ -14,7 +13,9 @@ const searchBtn = headerEl.querySelector('.search__icon');
 const watchedBtnEl = headerEl.querySelector('.watched-button');
 const queueBtnEl = headerEl.querySelector('.queue-button');
 
-export const galleryContainerEl = document.querySelector('.js-main-container-list');
+export const galleryContainerEl = document.querySelector(
+  '.js-main-container-list'
+);
 
 headerEl.classList.add('header1');
 btnLibrary.classList.add('library');
@@ -35,7 +36,6 @@ function onInputElClick() {
   inputEl.classList.add('input-anime');
 }
 
-
 function onLogoBtnClick() {
   onHomeBtnClick();
 }
@@ -47,7 +47,6 @@ function onHomeBtnClick() {
   inputEl.classList.remove('js-is-hidden');
   btnHome.classList.remove('home');
   btnLibrary.classList.add('library');
-
 
   galleryContainerEl.classList.add('js-home-page');
   galleryContainerEl.classList.remove('js-library-page');
@@ -90,5 +89,4 @@ function onQueueBtnClick() {
   queueBtnEl.classList.add('accent');
   watchedBtnEl.classList.remove('blick');
   queueBtnEl.classList.add('blick');
-
 }
