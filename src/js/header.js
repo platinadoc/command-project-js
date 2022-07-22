@@ -12,7 +12,7 @@ const btnLibrary = headerEl.querySelector('.navigation__link.js-home');
 const searchBtn = headerEl.querySelector('.search__icon');
 const watchedBtnEl = headerEl.querySelector('.watched-button');
 const queueBtnEl = headerEl.querySelector('.queue-button');
-const parameterValueEl = document.querySelector('.parameter__value');
+const voteValueEl = document.querySelector('.hero__votes');
 
 export const galleryContainerEl = document.querySelector(
   '.js-main-container-list'
@@ -29,6 +29,8 @@ watchedBtnEl.addEventListener('click', onWatchedBtnClick);
 queueBtnEl.addEventListener('click', onQueueBtnClick);
 inputEl.addEventListener('click', onInputElClick);
 
+// ...Andriy suggested a solution of the problem... (comment by Kostiantyn)
+// 
 function onSearchBtnClick() {
   inputEl.reset();
 }
@@ -53,9 +55,10 @@ function onHomeBtnClick() {
   queueBtnEl.classList.remove('accent');
   watchedBtnEl.classList.add('blick');
   queueBtnEl.classList.remove('blick');
-  parameterValueEl.classList.add('visually__hidden');
-
+ 
   renderFilmCard();
+
+  // voteValueEl.classList.add('visually__hidden');
 }
 
 function onLibraryBtnClick() {
@@ -65,12 +68,13 @@ function onLibraryBtnClick() {
   inputEl.classList.add('js-is-hidden');
   btnHome.classList.add('home');
   btnLibrary.classList.remove('library');
-  parameterValueEl.classList.remove('visually__hidden');
-
+  
   activateLibraryView();
 
   watchedBtnEl.classList.add('accent');
   watchedBtnEl.classList.add('blick');
+
+  // voteValueEl.classList.remove('visually__hidden');
 }
 
 function onWatchedBtnClick() {
