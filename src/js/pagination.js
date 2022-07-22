@@ -1,11 +1,10 @@
 import Pagination from 'tui-pagination';
-import { renderFilmCard } from "./renderText";
-import { api } from './renderText';
-import {onInputChange} from './querySearchFilm';
+import {fetchPerPage} from './querySearchFilm';
+
 
 
 const container = document.getElementById('tui-pagination-container');
-export const pagination = new Pagination(container, {
+const option={
   itemsPerPage: 20,
   visiblePages: 5,
   centerAlign: false,
@@ -18,11 +17,17 @@ export const pagination = new Pagination(container, {
       '<button class="move-btn move-btn-{{type}} disabled" disabled></button>',
     moreButton: '<a class="page-btn next-is-ellip last-child">...</a>',
   },
-});
+}
+
+export const pagination = new Pagination(container, option);
 pagination.on('afterMove', event => {
   const currentPage = event.page;
   fetchPerPage(currentPage);
 });
+
+
+
+
 
 
 
