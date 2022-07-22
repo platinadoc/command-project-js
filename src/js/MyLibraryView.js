@@ -1,4 +1,4 @@
-import filmcard from '../templates/filmcard.hbs';
+import filmcardLibrary from '../templates/filmcard-library.hbs';
 import { TheMovieDBApi } from './fetchfilm';
 import { convertFilmsByLibrary } from './convertFilmsByLibrary';
 
@@ -56,7 +56,7 @@ async function getQueueMovies() {
 function myLibraryMarkUp(data, ref) {
   // ref.innerHTML = '';
 
-  const markUp = filmcard(data);
+  const markUp = filmcardLibrary(data);
   // ref.insertAdjacentHTML("beforeend", markUp);
   moviesEl.innerHTML = markUp;
 }
