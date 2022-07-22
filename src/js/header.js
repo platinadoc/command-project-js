@@ -1,5 +1,7 @@
 import activateLibraryView from './MyLibraryView';
 import { renderFilmCard } from './renderText';
+import {moveBtnFilmotekaToFirstPage} from './movebtnfilmoteka';
+
 
 const headerEl = document.querySelector('.header');
 const homeBtnEl = headerEl.querySelector('.js-home');
@@ -57,7 +59,7 @@ function onHomeBtnClick() {
   queueBtnEl.classList.remove('blick');
  
   renderFilmCard();
-
+  moveBtnFilmotekaToFirstPage();
   // voteValueEl.classList.add('visually__hidden');
 }
 

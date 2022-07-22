@@ -34,6 +34,7 @@ pagination.on('afterMove', event => {
 // const libraryListEl = document.querySelector('.js-gallery-page');
 
 export async function renderFilmCard() {
+  // console.log(api.page);
   if (!api.genresMap) {
     await api.getGenres();
   }
@@ -44,6 +45,9 @@ export async function renderFilmCard() {
   const response = await api.fetchTrendingFilms();
   renderFilmsList(response.data.results);
   pagination.reset(response.data.total_results);
+  pagination.movePageTo(api.page);
+
+
 }
 
 async function renderTrendingPerPage(page) {
