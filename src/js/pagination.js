@@ -24,26 +24,5 @@ pagination.on('afterMove', event => {
   fetchPerPage(currentPage);
 });
 
-// async function fetchPerPage(page) {
-//   api.page = page;
-//   const response = await api.fetchFilms();
-//   console.log(response.data);
-//   await renderFilmCard(); 
-//   if (page === 1) pagination.reset(response.data.total_results);
-// }
-// document.onload = fetchPerPage(1);
-
-
-
-//  async function fetchPerPage(page) {
-//   api.page = page;
-//   console.log("page", api.page);
-//   const response = await api.fetchFilms();
-//   console.log(response.data.total_pages);
-//   // onInputChange();  
-//   if (page === 1) pagination.reset(response.data.total_results);
-//   return response
-// }
-// document.onload = fetchPerPage(1);
 
 
