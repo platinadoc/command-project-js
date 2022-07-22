@@ -1,3 +1,5 @@
+import placeholder from '../images/placeholder.png';
+
 export const convertFilmsByLibrary = films => {
   return films.map(film => {
     return {
