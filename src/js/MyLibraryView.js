@@ -1,6 +1,7 @@
 import filmcardLibrary from '../templates/filmcard-library.hbs';
 import { TheMovieDBApi } from './fetchfilm';
 import { convertFilmsByLibrary } from './convertFilmsByLibrary';
+import {paginationWatched} from './pagination';
 
 const moviesEl = document.querySelector('.js-home-page');
 const showWatchedBtnEl = document.querySelector('.watched-button');
@@ -22,6 +23,7 @@ async function onWatchedBtnClick() {
   const movies = await getWatchedMovies();
   const convertMovies = convertFilmsByLibrary(movies);
   markUpMovies(convertMovies);
+  // paginationWatched();
 }
 
 async function onQueueBtnClick() {
@@ -39,8 +41,9 @@ async function getWatchedMovies() {
     ids.map(async id => {
       return await api.fetchFilmById(id);
     })
-  );
-  return films;
+    );
+    
+    return films;
 }
 
 async function getQueueMovies() {

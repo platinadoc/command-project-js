@@ -1,5 +1,7 @@
 import activateLibraryView from './MyLibraryView';
 import { renderFilmCard } from './renderText';
+import {moveBtnFilmotekaToFirstPage} from './renderText';
+
 
 const headerEl = document.querySelector('.header');
 const homeBtnEl = headerEl.querySelector('.js-home');
@@ -40,7 +42,20 @@ function onInputElClick() {
 }
 
 function onLogoBtnClick() {
-  onHomeBtnClick();
+  headerFilmEl.classList.add('js-is-hidden');
+  headerEl.classList.add('header1');
+  headerEl.classList.remove('header2');
+  inputEl.classList.remove('js-is-hidden');
+  btnHome.classList.remove('home');
+  btnLibrary.classList.add('library');
+
+  watchedBtnEl.classList.add('accent');
+  queueBtnEl.classList.remove('accent');
+  watchedBtnEl.classList.add('blick');
+  queueBtnEl.classList.remove('blick');
+
+  moveBtnFilmotekaToFirstPage();
+ 
 }
 
 function onHomeBtnClick() {
@@ -57,6 +72,7 @@ function onHomeBtnClick() {
   queueBtnEl.classList.remove('blick');
  
   renderFilmCard();
+
 
   // voteValueEl.classList.add('visually__hidden');
 }
