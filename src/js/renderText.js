@@ -6,6 +6,9 @@ import placeholder from '../images/placeholder.png';
 import useSpinner from 'use-spinner';
 import 'use-spinner/assets/use-spinner.css';
 import { convertFilms } from './convertFilms';
+import {paginationWatched, paginationQueue} from './pagination';
+import {getWatchedMovies} from './MyLibraryView';
+
 // import { pagination } from './pagination';
 
 export const api = new TheMovieDBApi();
@@ -62,7 +65,7 @@ export async function renderFilmCard() {
   renderFilmsList(response.data.results);
   paginationTrending.reset(response.data.total_results);
   paginationTrending.movePageTo(api.page);
-
+  paginationWatched.reset(response.data.total_results);
 
 }
 
@@ -72,20 +75,39 @@ async function renderTrendingPerPage(page) {
   renderFilmsList(response.data.results);
 }
 
+
+
+// paginationWatched.on('afterMove', event => {
+//     const currentPage = event.page;
+//     fetchPerPageWatched(currentPage);
+//     console.log(fetchPerPageWatched);
+//   });
+  
+//   async function fetchPerPageWatched(page){
+//   api.page = page;
+//   const response = await getWatchedMovies(1)
+//   await renderFilmList(response.data.results);
+//   }
+
+
+
+//   paginationQueue.on('afterMove', event => {
+//     const currentPage = event.page;
+//     fetchPerPageQueue(currentPage);   
+//   });
+  
+//   async function fetchPerPageQueue(page){
+//   api.page=page;
+//   const response=await api.getQueueMovies()
+//   renderFilmsList(response.data.results);
+//   console.log(renderFilmList());
+//   }
+
+
+
+
 export async function renderFilmsList(films) {
-
-  // async function fetchPerPageWatched(page){
-  // api.page=page;
-  // const response=await api.getWatchedMovies()
-  // await renderFilmsList(response.data.results)
-  // }
-  // paginationWatched.on('afterMove', event => {
-  //   const currentPage = event.page;
-  //   fetchPerPageWatched(currentPage);
-  // });
-
 const convertedFilms = convertFilms(films)
-
   // libraryListEl.innerHTML = '';
   const filmItemsMarkup = filmcard(convertedFilms);
   mainListEl.innerHTML = filmItemsMarkup;

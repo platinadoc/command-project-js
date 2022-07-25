@@ -25,7 +25,8 @@ pagination.on('afterMove', event => {
   fetchPerPage(currentPage);
 });
 
-
+export const paginationWatched =new Pagination(container, option);
+export const paginationQueue =new Pagination(container, option);
 
 
 

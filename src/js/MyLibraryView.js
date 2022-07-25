@@ -35,7 +35,7 @@ async function onQueueBtnClick() {
   markUpMovies(convertMovies);
 }
 
-async function getWatchedMovies() {
+export async function getWatchedMovies() {
   const ids = JSON.parse(localStorage.getItem('watched')) || [];
   const films = await Promise.all(
     ids.map(async id => {
