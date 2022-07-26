@@ -1,4 +1,5 @@
 import placeholder from '../images/placeholder.png';
+import { api } from './renderText';
 
 export const convertFilmsByLibrary = films => {
   return films.map(film => {

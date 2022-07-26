@@ -1,29 +1,22 @@
-{{#each this}}
-  <li class='hero__item' data-item='{{id}}'>
-    <div class='hero__box average__position'>
-      <img
-        class='hero__image'
-        src='{{this.poster_path}}'
-        alt='{{title}}'
-        data-src='{{id}}'
-      />
-    </div>
-    <div class='about__film' data-film='{{id}}'>
-      <h2 class='hero__title' data-hero='{{id}}'> {{title}}</h2>
-      <p class='hero__parameters' data-parameters='{{id}}'>
-        {{#each genre_ids}}
-          {{this}}{{#unless @last}}, {{/unless}}
-          {{#if @last}} | {{/if}}
-        {{/each}}
-        {{#if release_date}}
-          {{release_date}}
-        {{/if}}
-        <span class='hero__votes-block'>
-          <span class='hero__votes' data-votes='{{id}}'>
-            {{vote_average}}
-          </span>
+<li class='hero__item' data-item='{{id}}'>
+  <div class='hero__box average__position'>
+    <img class='hero__image' src = '{{this.poster_path}}' alt='{{title}}' data-src='{{id}}' />
+  </div>
+  <div class='about__film' data-film='{{id}}'>
+    <h2 class='hero__title' data-hero='{{id}}'> {{title}}</h2>
+    <p class='hero__parameters' data-parameters='{{id}}'>
+      {{#each genre_ids}}
+      {{this}}{{#unless @last}}, {{/unless}}
+      {{#if @last}} | {{/if}}
+      {{/each}}
+      {{#if release_date}}
+      {{release_date}}
+      {{/if}}
+      <span class='hero__votes-block'>
+        <span class='hero__votes' data-votes='{{id}}'>
+          {{vote_average}}
         </span>
-      </p>
-    </div>
-  </li>
-{{/each}}
+      </span>
+    </p>
+  </div>
+</li>
