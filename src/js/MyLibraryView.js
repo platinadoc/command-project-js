@@ -45,6 +45,10 @@ async function onWatchedBtnClick() {
   try {
     const movies = JSON.parse(localStorage.getItem('watched')) || [];
     // console.log(movies);
+    if (movies.length === 0){
+      emptyListMarkUp();
+      // console.log(emptyListMarkUp);
+    }
     const moviesFirstPage = movies.slice(0, cardsQuantity);
     renderLibraryMarkup(moviesFirstPage);   
     paginationWatched.reset(movies.length);
