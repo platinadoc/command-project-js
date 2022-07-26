@@ -2,7 +2,6 @@ import Pagination from 'tui-pagination';
 import {fetchPerPage} from './querySearchFilm';
 
 
-
 const container = document.getElementById('tui-pagination-container');
 const option={
   itemsPerPage: 20,
@@ -18,15 +17,15 @@ const option={
     moreButton: '<a class="page-btn next-is-ellip last-child">...</a>',
   },
 }
-
 export const pagination = new Pagination(container, option);
 pagination.on('afterMove', event => {
   const currentPage = event.page;
   fetchPerPage(currentPage);
 });
 
-export const paginationWatched =new Pagination(container, option);
-export const paginationQueue =new Pagination(container, option);
+
+
+
 
 
 

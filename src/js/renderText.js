@@ -65,7 +65,7 @@ export async function renderFilmCard() {
   renderFilmsList(response.data.results);
   paginationTrending.reset(response.data.total_results);
   paginationTrending.movePageTo(api.page);
-  paginationWatched.reset(response.data.total_results);
+  // paginationWatched.reset(response.data.total_results);
 
 }
 
@@ -77,31 +77,7 @@ async function renderTrendingPerPage(page) {
 
 
 
-// paginationWatched.on('afterMove', event => {
-//     const currentPage = event.page;
-//     fetchPerPageWatched(currentPage);
-//     console.log(fetchPerPageWatched);
-//   });
-  
-//   async function fetchPerPageWatched(page){
-//   api.page = page;
-//   const response = await getWatchedMovies(1)
-//   await renderFilmList(response.data.results);
-//   }
 
-
-
-//   paginationQueue.on('afterMove', event => {
-//     const currentPage = event.page;
-//     fetchPerPageQueue(currentPage);   
-//   });
-  
-//   async function fetchPerPageQueue(page){
-//   api.page=page;
-//   const response=await api.getQueueMovies()
-//   renderFilmsList(response.data.results);
-//   console.log(renderFilmList());
-//   }
 
 
 
