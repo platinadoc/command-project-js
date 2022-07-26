@@ -1,5 +1,6 @@
-import activateLibraryView from "./MyLibraryView";
-import {renderFilmList, renderFilmCard} from './renderText';
+import activateLibraryView from './MyLibraryView';
+import { renderFilmCard } from './renderText';
+import {moveBtnFilmotekaToFirstPage} from './renderText';
 
 
 const headerEl = document.querySelector('.header');
@@ -13,8 +14,11 @@ const btnLibrary = headerEl.querySelector('.navigation__link.js-home');
 const searchBtn = headerEl.querySelector('.search__icon');
 const watchedBtnEl = headerEl.querySelector('.watched-button');
 const queueBtnEl = headerEl.querySelector('.queue-button');
+const voteValueEl = document.querySelector('.hero__votes');
 
-export const galleryContainerEl = document.querySelector('.js-main-container-list');
+export const galleryContainerEl = document.querySelector(
+  '.js-main-container-list'
+);
 
 headerEl.classList.add('header1');
 btnLibrary.classList.add('library');
@@ -27,6 +31,8 @@ watchedBtnEl.addEventListener('click', onWatchedBtnClick);
 queueBtnEl.addEventListener('click', onQueueBtnClick);
 inputEl.addEventListener('click', onInputElClick);
 
+// ...Andriy suggested a solution of the problem... (comment by Kostiantyn)
+// 
 function onSearchBtnClick() {
   inputEl.reset();
 }
@@ -35,9 +41,21 @@ function onInputElClick() {
   inputEl.classList.add('input-anime');
 }
 
-
 function onLogoBtnClick() {
-  onHomeBtnClick();
+  headerFilmEl.classList.add('js-is-hidden');
+  headerEl.classList.add('header1');
+  headerEl.classList.remove('header2');
+  inputEl.classList.remove('js-is-hidden');
+  btnHome.classList.remove('home');
+  btnLibrary.classList.add('library');
+
+  watchedBtnEl.classList.add('accent');
+  queueBtnEl.classList.remove('accent');
+  watchedBtnEl.classList.add('blick');
+  queueBtnEl.classList.remove('blick');
+
+  moveBtnFilmotekaToFirstPage();
+ 
 }
 
 function onHomeBtnClick() {
@@ -48,17 +66,15 @@ function onHomeBtnClick() {
   btnHome.classList.remove('home');
   btnLibrary.classList.add('library');
 
-
-  galleryContainerEl.classList.add('js-home-page');
-  galleryContainerEl.classList.remove('js-library-page');
-
   watchedBtnEl.classList.add('accent');
   queueBtnEl.classList.remove('accent');
   watchedBtnEl.classList.add('blick');
   queueBtnEl.classList.remove('blick');
-
-  // renderFilmList();
+ 
   renderFilmCard();
+
+
+  // voteValueEl.classList.add('visually__hidden');
 }
 
 function onLibraryBtnClick() {
@@ -68,14 +84,13 @@ function onLibraryBtnClick() {
   inputEl.classList.add('js-is-hidden');
   btnHome.classList.add('home');
   btnLibrary.classList.remove('library');
-
+  
   activateLibraryView();
-
-  // galleryContainerEl.classList.add('js-library-page');
-  // galleryContainerEl.classList.remove('js-home-page');
 
   watchedBtnEl.classList.add('accent');
   watchedBtnEl.classList.add('blick');
+
+  // voteValueEl.classList.remove('visually__hidden');
 }
 
 function onWatchedBtnClick() {
@@ -90,5 +105,4 @@ function onQueueBtnClick() {
   queueBtnEl.classList.add('accent');
   watchedBtnEl.classList.remove('blick');
   queueBtnEl.classList.add('blick');
-
 }

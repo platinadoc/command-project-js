@@ -11,6 +11,7 @@ const modalEl = document.querySelector('.modal__body');
 const outsideModalEl = document.querySelector('.backdrop');
 const body = document.querySelector('body');
 let movie_id = null;
+
 openModalEl.addEventListener('click', onOpenModalClick);
 
 function onOpenModalClick(e) {
@@ -25,23 +26,42 @@ function onOpenModalClick(e) {
 
   const dataId = e.target.dataset;
 
-  if (dataId.id) {
-    movie_id = Number(dataId.id);
+  // console.log(e.target.dataset);
+  // console.log(e.currentTarget);
+
+    if (dataId.item) {
+    movie_id = Number(dataId.item);
   } else if (dataId.src) {
     movie_id = Number(dataId.src);
+  } else if (dataId.film) {
+    movie_id = Number(dataId.film);
   } else if (dataId.hero) {
     movie_id = Number(dataId.hero);
-  } else if (dataId.genres) {
-    movie_id = Number(dataId.genres);
-  } else if (dataId.release) {
-    movie_id = Number(dataId.release);
-  } else if (dataId.vote) {
-    movie_id = Number(dataId.vote);
-  } else if (dataId.list) {
-    movie_id = Number(dataId.list);
+  }else if (dataId.parameters) {
+    movie_id = Number(dataId.parameters);
+  } else if (dataId.votes) {
+    movie_id = Number(dataId.votes);
   } else {
     return;
   }
+
+  // if (dataId.id) {
+  //   movie_id = Number(dataId.id);
+  // } else if (dataId.src) {
+  //   movie_id = Number(dataId.src);
+  // } else if (dataId.hero) {
+  //   movie_id = Number(dataId.hero);
+  // } else if (dataId.genres) {
+  //   movie_id = Number(dataId.genres);
+  // } else if (dataId.release) {
+  //   movie_id = Number(dataId.release);
+  // } else if (dataId.vote) {
+  //   movie_id = Number(dataId.vote);
+  // } else if (dataId.list) {
+  //   movie_id = Number(dataId.list);
+  // } else {
+  //   return;
+  // }
 
   renderModalCard(movie_id);
 }
@@ -100,7 +120,7 @@ async function renderModalCard(movie_id) {
 
   // const filmList = [response];
 
-  console.log(response);
+  // console.log(response);
   // const modalFilm = convertFilms(filmList)[0];
 
   response.popularity = response.popularity.toFixed(1);

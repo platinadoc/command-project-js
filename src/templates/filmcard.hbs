@@ -1,43 +1,24 @@
 {{#each this}}
-  <li class='hero__item' data-id='{{id}}'>
+  <li class='hero__item' data-item='{{id}}'>
     <div class='hero__box average__position'>
       <img
         class='hero__image'
-        src="{{this.poster_path}}" 
+        src='{{this.poster_path}}'
         alt='{{title}}'
         data-src='{{id}}'
       />
-
     </div>
-    <div class='about__film'>
-      <h2 class='hero__title' data-hero ='{{id}}'> {{title}}</h2>
-      <div class='hero__description'>
-        <ul class='hero__description--list' data-list ='{{id}}'>
-          <li class='hero__description--Item'>
-           
-              <span class='hero__genres' data-genres ='{{id}}'>
-                {{#each genre_ids}}
-                {{this}}{{#unless @last}}, {{/unless}}
-                {{/each}} | {{release_date}}
-                </span>
-                {{!-- <span class='hero__date' data-release ='{{id}}'> | {{release_date}}</span> --}}
-            {{!-- {{#each genre}}
-              <span class="hero__genres" data-genres ='{{id}}'>{{genre_ids}}</span>
-            {{/each}} --}}
-              
-              {{!-- <span class='symbol'>,</span> --}}
-              
-          </li>
-          <li class='hero__description--Item'>
-            {{!-- <p class='hero__date' data-release ='{{id}}'> | {{release_date}}</p> --}}
-            <span
-                class='parameter__value parameter__position' data-vote ='{{id}}'
-              >{{vote_average}}</span>
-          </li>
-        </ul>
-      </div>
+    <div class='about__film' data-film='{{id}}'>
+      <h2 class='hero__title' data-hero='{{id}}'> {{title}}</h2>
+      <p class='hero__parameters' data-parameters='{{id}}'>
+        {{#each genre_ids}}
+          {{this}}{{#unless @last}}, {{/unless}}
+          {{#if @last}} | {{/if}}
+        {{/each}}
+        {{#if release_date}}
+          {{release_date}}
+        {{/if}}
+      </p>
     </div>
   </li>
 {{/each}}
-
-

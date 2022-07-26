@@ -6,13 +6,16 @@ import placeholder from '../images/placeholder.png';
 import useSpinner from 'use-spinner';
 import 'use-spinner/assets/use-spinner.css';
 import { convertFilms } from './convertFilms';
-// import { pagination } from './pagination';
+import {paginationWatched, paginationQueue} from './pagination';
+import {getWatchedMovies} from './MyLibraryView';
+import {renderLibraryMarkup} from './MyLibraryView';
+
 
 export const api = new TheMovieDBApi();
 const mainListEl = document.querySelector('.js-home-page');
 
 const container = document.getElementById('tui-pagination-container');
-export const pagination = new Pagination(container, {
+export const paginationTrending = new Pagination(container, {
   itemsPerPage: 20,
   visiblePages: 5,
   centerAlign: false,
@@ -27,13 +30,14 @@ export const pagination = new Pagination(container, {
   },
 });
 
-pagination.on('afterMove', event => {
+paginationTrending.on('afterMove', event => {
   const currentPage = event.page;
   renderTrendingPerPage(currentPage);
 });
-// const libraryListEl = document.querySelector('.js-gallery-page');
 
-export async function renderFilmCard() {
+export async function moveBtnFilmotekaToFirstPage() {
+  api.page = 1;
+  // console.log(api.page);
   if (!api.genresMap) {
     await api.getGenres();
   }
@@ -43,7 +47,24 @@ export async function renderFilmCard() {
 
   const response = await api.fetchTrendingFilms();
   renderFilmsList(response.data.results);
-  pagination.reset(response.data.total_results);
+  paginationTrending.reset(response.data.total_results);
+
+}
+
+export async function renderFilmCard() {
+  // console.log(api.page);
+  if (!api.genresMap) {
+    await api.getGenres();
+  }
+  const fetchWithSpinner = useSpinner(api.fetchTrendingFilms, {
+    container: 'body',
+  });
+
+  const response = await api.fetchTrendingFilms();
+  renderFilmsList(response.data.results);
+  paginationTrending.reset(response.data.total_results);
+  paginationTrending.movePageTo(api.page);
+
 }
 
 async function renderTrendingPerPage(page) {
@@ -52,38 +73,11 @@ async function renderTrendingPerPage(page) {
   renderFilmsList(response.data.results);
 }
 
+
 export async function renderFilmsList(films) {
-
-const convertedFilms = convertFilms(films)
-
-  // libraryListEl.innerHTML = '';
+const convertedFilms = convertFilms(films);
   const filmItemsMarkup = filmcard(convertedFilms);
   mainListEl.innerHTML = filmItemsMarkup;
 }
-
-
-// export async function renderLibraryFilmCard() {
-//   const response = await api.fetchTrendingFilms();
-
-//   const films = response.data.results;
-//   const genresIds = await api.getGenres();
-//   films.map(el => {
-//     if (!el.poster_path) {
-//       el.poster_path = placeholder;
-//     } else {
-//       el.poster_path = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
-//     }
-//   });
-//   films.map(el => {
-//     const changedGenders = el.genre_ids.map(el => {
-//       el = genresIds[el];
-//       return el;
-//     });
-//     el.genre_ids = changedGenders;
-//   });
-//   mainListEl.innerHTML = '';
-//   const filmItemsMarkup = filmcard(films);
-//   libraryListEl.innerHTML = filmItemsMarkup;
-// }
 
 renderFilmCard();
